@@ -19,5 +19,5 @@ class User extends Model
         'workplace',
         'title',
         'qualification'
-    ];
+    ];  
 }
