@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>セミナー</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="/js/app.js" defer></script>
 </head>
 <body>
