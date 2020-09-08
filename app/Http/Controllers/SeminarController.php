@@ -36,5 +36,14 @@ class SeminarController extends Controller
 
         return view('seminar.seminar_detail',['seminar' => $seminar]);//詳細は単数形
     }
+    /**
+     * セミナー登録画面を表示する
+     *
+     * @return view
+     */
+    public function showCreate(){
+        return view('seminar.seminar_form');
+
+    }
 
 }

@@ -13,7 +13,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //セミナー一覧画面を表示
-Route::get('/', 'SeminarController@showList')->name('seminars');
+Route::get('/', 'SeminarController@showList')
+->name('seminars');
+
+//セミナー登録画面を表示
+Route::get('/seminar/create', 'SeminarController@showCreate')
+->name('createSeminar');
+
+//セミナー登録
+Route::post('/seminar/store', 'SeminarController@exeStore')
+->name('storeSeminar'); 
+
 //セミナー詳細画面を表示
-Route::get('/seminar/{id}', 'SeminarController@showDetail')->name('showSeminar');
+Route::get('/seminar/{id}', 'SeminarController@showDetail')
+->name('showSeminar');
  
