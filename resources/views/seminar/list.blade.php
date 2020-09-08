@@ -4,19 +4,26 @@
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
     <h2>セミナー一覧</h2>
+    @if (session('err_msg'))
+    <p class="text-danger">
+      {{ session('err_msg')}}
+    </p>
+    @endif
     <table class="table table-striped">
       <tr>
-        <th>セミナー番号</th>
+        <th>開催形式</th>
         <th>開催日付</th>
-        <th>タイトル</th>
-        <th></th>
+        <th>主催</th>
+        <th>講座紹介</th>
       </tr>
+      @foreach($seminars as $seminar)
       <tr>
-        <td>1</td>
-        <td>2020/06/30</td>
-        <td>テスト</td>
-        <td></td>
+        <td>{{$seminar->online_conference }}</td>
+        <td>{{$seminar->seminar_date }}</td>
+        <td><a href="/seminar/{{ $seminar->id }}">{{$seminar->eventologist }}</a></td>
+        <td>{{$seminar->lead }}</td>
       </tr>
+      @endforeach
     </table>
   </div>
 </div>
