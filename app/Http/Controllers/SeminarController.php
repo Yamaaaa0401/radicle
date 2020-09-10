@@ -46,4 +46,18 @@ class SeminarController extends Controller
 
     }
 
+    /**
+     * セミナー登録する
+     *
+     * @return view
+     */
+    public function exeStore(Request $request)
+    {
+        dd($request->all());
+        Seminar::create();
+        \Session::flash('err_msg','ブログを登録しました');
+        return redirect(route('seminars'));
+    }
+
+
 }

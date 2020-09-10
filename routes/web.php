@@ -22,9 +22,8 @@ Route::get('/seminar/create', 'SeminarController@showCreate')
 
 //セミナー登録
 Route::post('/seminar/store', 'SeminarController@exeStore')
-->name('storeSeminar'); 
+->name('storeSeminar');
 
-//セミナー詳細画面を表示
+//セミナー詳細画面を表示  ここよりも上に登録画面をつくる
 Route::get('/seminar/{id}', 'SeminarController@showDetail')
 ->name('showSeminar');
- 
