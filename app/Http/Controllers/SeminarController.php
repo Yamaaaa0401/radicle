@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Seminar;
+//SeminarRequest.phpからnamespace,clasのコピーを行なう
+use App\Http\Requests\SeminarRequest;
 
 class SeminarController extends Controller
 {
@@ -51,10 +53,25 @@ class SeminarController extends Controller
      *
      * @return view
      */
-    public function exeStore(Request $request)
+    //バリデーション：Request−＞SeminarRequestに変える
+    public function exeStore(SeminarRequest $request)
     {
-        dd($request->all());
-        Seminar::create();
+        //セミナーデータを受け取る
+        $inputs = $request->all();
+
+        \DB::beginTransaction();
+        //エラーの表示
+        try{
+            //セミナーを登録
+            Seminar::create($inputs);
+            \DB::commit();
+        }catch(\Throwable $e){
+            //できたらここでログを出力する（未）
+            \DB::rollback();
+            abort(500);
+        }
+
+
         \Session::flash('err_msg','ブログを登録しました');
         return redirect(route('seminars'));
     }
