@@ -6,7 +6,7 @@
         <h2>セミナー投稿フォーム</h2>
         <form method="POST" action="{{ route('storeSeminar') }}" onSubmit="return checkSubmit()">
             @csrf
-            //ここからラジクル
+            {{-- //ここからラジクル --}}
             <div class="form-group">
                 <label for="mst_formats">
                     開催形式
@@ -15,17 +15,6 @@
                 @if ($errors->has('mst_formats'))
                 <div class="text-danger">
                     {{ $errors->first('mst_formats') }}
-                </div>
-                @endif
-            </div>
-            <div class="form-group">
-                <label for="biz_users">
-                    オンライン開催配信方法
-                </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
-                @if ($errors->has('biz_users'))
-                <div class="text-danger">
-                    {{ $errors->first('biz_users') }}
                 </div>
                 @endif
             </div>
@@ -77,7 +66,9 @@
                 <label for="seminar_date">
                     開催日
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                --}}
+                <input type="date" id="seminar_date" name="seminar_date">
                 @if ($errors->has('seminar_date'))
                 <div class="text-danger">
                     {{ $errors->first('seminar_date') }}
@@ -88,7 +79,13 @@
                 <label for="seminar_time">
                     開催時間
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                --}}
+                <input type="time" name="seminar_time" style="width:80px" id="seminar_time" value="15:00" min="0:00"
+                    max="23:59" step="900">
+                〜
+                <input type="time" name="seminar_time" style="width:80px" id="seminar_time" value="17:00" min="0:00"
+                    max="23:59" step="900">
                 @if ($errors->has('seminar_time'))
                 <div class="text-danger">
                     {{ $errors->first('seminar_time') }}
@@ -99,7 +96,9 @@
                 <label for="capacity">
                     定員
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                {{-- <textarea id="capacity" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                --}}
+                <input type="number" id="capacity" name="capacity" value="100" min="0" max="99999" step="1"> 名
                 @if ($errors->has('capacity'))
                 <div class="text-danger">
                     {{ $errors->first('capacity') }}
@@ -131,6 +130,7 @@
             <div class="form-group">
                 <label for="mst_prefecture">
                     都道府県
+                    {{-- 別テーブルに接続 mst_prefecture_code_id --}}
                 </label>
                 <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('mst_prefecture'))
@@ -165,7 +165,9 @@
                 <label for="fee">
                     受講料
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                --}}
+                <input type="number" id="fee" name="fee" value="500" min="0" max="1000000" step="10">円/1人
                 @if ($errors->has('fee'))
                 <div class="text-danger">
                     {{ $errors->first('fee') }}
@@ -183,7 +185,8 @@
                 </div>
                 @endif
             </div>
-            <div class="form-group">//資格は追加できるようにしたい
+            <div class="form-group">
+                {{-- //資格は追加できるようにしたい --}}
                 <label for="qualification">
                     認定資格名
                 </label>
@@ -198,7 +201,10 @@
                 <label for="qualification_point">
                     付与ポイント
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                --}}
+                <input type="number" id="qualification_point" name="qualification_point" value="1" min="0" max="100"
+                    step="1">単位・ポイント
                 @if ($errors->has('qualification_point'))
                 <div class="text-danger">
                     {{ $errors->first('qualification_point') }}
@@ -249,7 +255,8 @@
                 </div>
                 @endif
             </div>
-            <div class="form-group">//カテゴリの登録もできるようにしたい
+            <div class="form-group">
+                {{-- //カテゴリの登録もできるようにしたい --}}
                 <label for="tag">
                     主なカテゴリタグ
                 </label>
