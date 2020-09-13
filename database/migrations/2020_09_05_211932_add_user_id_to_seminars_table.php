@@ -15,7 +15,7 @@ class AddUserIdToSeminarsTable extends Migration
     {
         Schema::table('seminars', function (Blueprint $table) {
             //カラムの追加
-            $table->integer('format_id');	
+            $table->integer('mst_format_id');	
             $table->integer('biz_user_id');	
             $table->string('online_conference',255);
             $table->string('eventologist',255);
@@ -35,7 +35,7 @@ class AddUserIdToSeminarsTable extends Migration
             $table->integer('unit_id');
             $table->integer('application_id');
             $table->text('web');
-            $table->text('image');
+            $table->text('seminar_image_id');
             $table->text('website');
             $table->integer('mst_seminar_contract_id');
 

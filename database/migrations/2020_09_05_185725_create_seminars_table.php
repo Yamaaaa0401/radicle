@@ -19,7 +19,7 @@ class CreateSeminarsTable extends Migration
             $table->id();
 
             $table->timestamps();
-            });      
+            });
         }
 
 
