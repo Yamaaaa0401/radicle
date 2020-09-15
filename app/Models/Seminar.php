@@ -11,7 +11,7 @@ class Seminar extends Model
     protected $table = 'seminars';
 
     //可変項目
-    protected $fillable = 
+    protected $fillable =
     [
         'format_id',
         'biz_user_id',

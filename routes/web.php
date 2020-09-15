@@ -12,18 +12,27 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//セミナー一覧画面を表示
-Route::get('/', 'SeminarController@showList')
-->name('seminars');
+//セミナー名・都道府県のみ表示一覧を表示
+Route::get('/','SeminartestController@showlist')
+->name('seminartests');
 
-//セミナー登録画面を表示
-Route::get('/seminar/create', 'SeminarController@showCreate')
-->name('createSeminar');
+//セミナー名・都道府県のみ表示一覧を表示
+Route::get('/','SeminartestController@showlist')
+->name('seminartests');
 
-//セミナー登録
-Route::post('/seminar/store', 'SeminarController@exeStore')
-->name('storeSeminar');
 
-//セミナー詳細画面を表示  ここよりも上に登録画面をつくる
-Route::get('/seminar/{id}', 'SeminarController@showDetail')
-->name('showSeminar');
+// //セミナー一覧画面を表示
+// Route::get('/', 'SeminarController@showList')
+// ->name('seminars');
+
+// //セミナー登録画面を表示
+// Route::get('/seminar/create', 'SeminarController@showCreate')
+// ->name('createSeminar');
+
+// //セミナー登録
+// Route::post('/seminar/store', 'SeminarController@exeStore')
+// ->name('storeSeminar');
+
+// //セミナー詳細画面を表示  ここよりも上に登録画面をつくる
+// Route::get('/seminar/{id}', 'SeminarController@showDetail')
+// ->name('showSeminar');
