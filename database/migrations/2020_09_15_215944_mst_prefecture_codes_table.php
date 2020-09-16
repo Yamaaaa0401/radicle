@@ -15,9 +15,9 @@ class MstPrefectureCodesTable extends Migration
     {
                     Schema::create('mst_prefectures_codes', function
              (Blueprint $table) {
-                $table->bigIncrements('id');
+                $table->id();
                 $table->string('name',100);
-                $table->integer('code',100);
+                $table->integer('code');
                 $table->timestamps();
             });
     }
