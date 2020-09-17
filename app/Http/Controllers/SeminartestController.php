@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Seminartest;
+use App\Models\Mst_prefectures_code;
+
+
 
 class SeminartestController extends Controller
 {
@@ -15,8 +18,10 @@ class SeminartestController extends Controller
     public function showlist(){
         
     $seminartests = Seminartest::all();
-
-    return view('seminartest.seminarlist',['seminartests' => $seminartests]);
+    $mst_prefectures_codes = Mst_prefectures_code::all();
+    // return view('seminartest.seminarlist',['seminartests' => $seminartests]);
+    return view('seminartest.seminarlist') -> with ('seminartests' , $seminartests);
+    return view
 
     }
 }

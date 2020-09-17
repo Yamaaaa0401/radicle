@@ -18,7 +18,7 @@
             @foreach($seminartests as $seminartest)
             <tr>
                 <td>{{$seminartest->name }}</td>
-                <td>{{$seminartest->mst_prefecture_code_id }}</td>
+                <td>{{$seminartest->mst_prefectures_code_id }}</td>{{--mst_prefectures_codesのIDと紐付けをしたい--}}
                 <td>{{$seminartest->updated_at }}</td>
             </tr>
             @endforeach

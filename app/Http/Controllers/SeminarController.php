@@ -19,6 +19,8 @@ class SeminarController extends Controller
     public function showList()
     {
         $seminars = Seminar::all();
+        
+        
         return view('seminar.list',['seminars' => $seminars]);
     }
 
@@ -44,6 +46,8 @@ class SeminarController extends Controller
      * @return view
      */
     public function showCreate(){
+        $
+
         return view('seminartest.seminarlist');
 
     }

@@ -14,6 +14,10 @@ class Seminartest extends Model
     protected $fillable =
     [
         'name',
-        'mst_prefecture_code_id'
+        'mst_prefectures_code_id'
     ];
+    //都道府県データをセミナーモデルに紐付ける
+    public function mst_prefecture_codes(){
+        return $this->hasMany(app\Models\Mst_prefectures_code::class,'mst_prefectures_code_id','id');
+    }
 }

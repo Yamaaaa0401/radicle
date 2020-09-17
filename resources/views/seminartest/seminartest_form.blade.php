@@ -24,22 +24,24 @@
                         都道府県
                         {{-- 別テーブルに接続 mst_prefecture_code_id --}}
                     </label>
-                    <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
-                    @if ($errors->has('mst_prefecture'))
-                    <div class="text-danger">
-                        {{ $errors->first('mst_prefecture') }}
-                    </div>
-                    @endif
-                </div>
+                    {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                --}}
 
-                <div class="mt-5">
-                    <a class="btn btn-secondary" href="{{ route('storeseminartest') }}">
-                        キャンセル
-                    </a>
-                    <button type="submit" class="btn btn-primary">
-                        投稿する
-                    </button>
+                @if ($errors->has('mst_prefecture'))
+                <div class="text-danger">
+                    {{ $errors->first('mst_prefecture') }}
                 </div>
+                @endif
+            </div>
+
+            <div class="mt-5">
+                <a class="btn btn-secondary" href="{{ route('storeseminartest') }}">
+                    キャンセル
+                </a>
+                <button type="submit" class="btn btn-primary">
+                    投稿する
+                </button>
+            </div>
         </form>
     </div>
 </div>
