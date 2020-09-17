@@ -19,9 +19,10 @@ class SeminartestController extends Controller
         
     $seminartests = Seminartest::with('mst_prefectures_codes')->get();
     $mst_prefectures_codes = Mst_prefectures_code::all();
-    dd($seminartests->toArray());
-    // return view('seminartest.seminarlist',['seminartests' => $seminartests]);
-    Seminartest::with('mst_prefectures_codes')->get();
+    dd($seminartests->toArray());//Mst_prefectures_codeのデータがnullになってしまう。。
+
+    // Seminartest::with('mst_prefectures_codes')->get();
     return view('seminartest.seminarlist') -> with ('seminartests' , $seminartests);
+        // return view('seminartest.seminarlist',['seminartests' => $seminartests]);
     }
 }
