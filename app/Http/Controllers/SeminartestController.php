@@ -17,11 +17,11 @@ class SeminartestController extends Controller
      */
     public function showlist(){
         
-    $seminartests = Seminartest::all();
+    $seminartests = Seminartest::with('mst_prefectures_codes')->get();
     $mst_prefectures_codes = Mst_prefectures_code::all();
+    dd($seminartests->toArray());
     // return view('seminartest.seminarlist',['seminartests' => $seminartests]);
+    Seminartest::with('mst_prefectures_codes')->get();
     return view('seminartest.seminarlist') -> with ('seminartests' , $seminartests);
-    return view
-
     }
 }

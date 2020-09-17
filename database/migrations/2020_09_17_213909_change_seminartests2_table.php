@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSeminartestsTable extends Migration
+class ChangeSeminartests2Table extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateSeminartestsTable extends Migration
      */
     public function up()
     {
-        Schema::create('seminartests', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('mst_prefecture_code_id');//ここがunsignedなんちゃら
-            $table->timestamps();
+        Schema::table('seminartests', function (Blueprint $table) {
+            //
         });
     }
 
@@ -28,6 +25,9 @@ class CreateSeminartestsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seminartests');
+        Schema::table('seminartests', function (Blueprint $table) {
+            //
+            $table->unsignedInteger('mst_prefecture_code_id');
+        });
     }
 }

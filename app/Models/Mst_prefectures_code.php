@@ -19,6 +19,6 @@ class Mst_prefectures_code extends Model
 
     //セミナーテストモデルと紐付け
     public function seminartest(){
-         return $this->belongsTo(app\Models\Seminartest::class,'mst_prefectures_code_id');
+         return $this->hasMany(Seminartest::class);
     }
 }
