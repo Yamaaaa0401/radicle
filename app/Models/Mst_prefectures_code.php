@@ -19,7 +19,7 @@ class Mst_prefectures_code extends Model
 
     //セミナーテストモデルと紐付け
     public function seminartests(){
-        //  return $this->hasMany(Seminartest::class);
-         return $this->hasMany('App\Models\Seminartest');
+         return $this->hasMany(Seminartest::class);
+        //  return $this->hasMany('App\Models\Seminartest');
     }
 }
