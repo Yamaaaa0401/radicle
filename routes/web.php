@@ -16,9 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/','SeminartestController@showlist')
 ->name('seminartests');
 
-//セミナー名・都道府県のみ表示一覧を表示
-Route::get('/','SeminartestController@showlist')
-->name('seminartests');
 
 
 // //セミナー一覧画面を表示

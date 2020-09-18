@@ -17,9 +17,8 @@ class SeminartestController extends Controller
      */
     public function showlist(){
         
-    $seminartests = Seminartest::with('mst_prefectures_codes')->get();
-    $mst_prefectures_codes = Mst_prefectures_code::all();
-    dd($seminartests->toArray());//Mst_prefectures_codeのデータがnullになってしまう。。
+    $seminartests = Seminartest::with('mst_prefectures_code')->get();
+    // dd($seminartests->toArray());
 
     // Seminartest::with('mst_prefectures_codes')->get();
     return view('seminartest.seminarlist') -> with ('seminartests' , $seminartests);

@@ -17,7 +17,7 @@ class Seminartest extends Model
         'mst_prefectures_code_id'
     ];
     //都道府県データをセミナーモデルに紐付ける
-    public function mst_prefectures_codes(){
+    public function mst_prefectures_code(){
         // return $this->belongsTo(Mst_prefectures_code::class);
         return $this->belongsTo('App\Models\Mst_prefectures_code');
     }
