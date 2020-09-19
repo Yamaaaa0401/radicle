@@ -5,9 +5,7 @@
     <div class="col-md-8 col-md-offset-2">
         <h2>セミナー投稿フォーム</h2>
         <form method="POST" action="{{ route('storeseminartest') }}" onSubmit="return checkSubmit()">
-            @csrf
-            {{-- //ここからラジクル --}}
-
+            @csrf{{--csrf対策--}}
             <div class="form-group">
                 <label for="name">
                     セミナー名
@@ -20,16 +18,15 @@
                 @endif
 
                 <div class="form-group">
-                    <label for="mst_prefecture">
+                    <label for="mst_prefecture_code_id">
                         都道府県
                         {{-- 別テーブルに接続 mst_prefecture_code_id --}}
                     </label>
-                    {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
-                --}}
+                    {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>--}}
 
-                @if ($errors->has('mst_prefecture'))
+                @if ($errors->has('mst_prefecture_code_id')){{--<-カラム名--}}
                 <div class="text-danger">
-                    {{ $errors->first('mst_prefecture') }}
+                    {{ $errors->first('mst_prefecture_code_id') }}
                 </div>
                 @endif
             </div>

@@ -46,9 +46,7 @@ class SeminarController extends Controller
      * @return view
      */
     public function showCreate(){
-        $
-
-        return view('seminartest.seminarlist');
+        $return view('seminartest.seminar_form');
 
     }
 

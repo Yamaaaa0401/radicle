@@ -11,7 +11,7 @@ use App\Models\Seminartest;
 class SeminartestController extends Controller
 {
     /**
-     * セミナー登録画面を表示する
+     * セミナー一覧画面を表示する
      *
      * @return view
      */
@@ -23,4 +23,15 @@ class SeminartestController extends Controller
     return view('seminartest.seminarlist') -> with ('seminartests' , $seminartests);
         // return view('seminartest.seminarlist',['seminartests' => $seminartests]);//どちらでもOK
     }
+
+        /**
+     * セミナー登録画面を表示する
+     *
+     * @return view
+     */
+    public function showCreate(){
+        return view('seminartest.seminartest_form');
+    }
+
+
 }
