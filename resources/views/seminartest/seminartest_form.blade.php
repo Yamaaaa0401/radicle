@@ -22,23 +22,29 @@
                         都道府県
                         {{-- 別テーブルに接続 mst_prefecture_code_id --}}
                     </label>
-                    {{-- <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>--}}
+                    <select name="area" class="form-control">
+                        <option value="">選択して下さい</option>
+                        @foreach($prefectures as $prefecture => $name)
+                        <option value="{{ $prefectures->$id }}">{{$id}}</option>
+                        @endforeach
+                    </select>
 
-                @if ($errors->has('mst_prefecture_code_id')){{--<-カラム名--}}
-                <div class="text-danger">
-                    {{ $errors->first('mst_prefecture_code_id') }}
+
+                    @if ($errors->has('mst_prefecture_code_id')){{--<-カラム名--}}
+                    <div class="text-danger">
+                        {{ $errors->first('mst_prefecture_code_id') }}
+                    </div>
+                    @endif
                 </div>
-                @endif
-            </div>
 
-            <div class="mt-5">
-                <a class="btn btn-secondary" href="{{ route('storeseminartest') }}">
-                    キャンセル
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    投稿する
-                </button>
-            </div>
+                <div class="mt-5">
+                    <a class="btn btn-secondary" href="{{ route('storeseminartest') }}">
+                        キャンセル
+                    </a>
+                    <button type="submit" class="btn btn-primary">
+                        投稿する
+                    </button>
+                </div>
         </form>
     </div>
 </div>

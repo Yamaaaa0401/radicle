@@ -17,9 +17,6 @@ Route::get('/','SeminartestController@showlist')
 ->name('seminartests');
 
 
-
-
-
 //セミナー登録画面を表示
 Route::get('/seminartest/create', 'SeminartestController@showCreate')
 ->name('createseminartest');

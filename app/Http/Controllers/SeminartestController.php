@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Seminartest;
-// use App\Models\Mst_prefectures_code;
+use App\Models\Mst_prefectures_code;
 
 
 
 class SeminartestController extends Controller
 {
+    
     /**
      * セミナー一覧画面を表示する
      *
@@ -30,7 +31,9 @@ class SeminartestController extends Controller
      * @return view
      */
     public function showCreate(){
-        return view('seminartest.seminartest_form');
+       $prefectures = Mst_prefectures_code::orderBy('id','asc')->first();
+        // dd($prefectures->toArray());
+        return view('seminartest.seminartest_form') -> with ('prefectures' , $prefectures );
     }
 
 
