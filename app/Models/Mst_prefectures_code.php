@@ -8,7 +8,7 @@ class Mst_prefectures_code extends Model
 {
     //
     //テーブル名
-    protected $table = 'seminars';
+    protected $table = 'Mst_prefectures_code';
 
     //可変項目
     protected $fillable = 
@@ -16,8 +16,8 @@ class Mst_prefectures_code extends Model
         //都道府県コード変更はなし
     ];
     //セミナーテストモデルと紐付け
-public function seminartests(){
-return $this->hasMany(Seminartest::class);
+public function seminars(){
+return $this->hasMany(Seminar::class);
 // return $this->hasMany('App\Models\Seminartest');
 }
 

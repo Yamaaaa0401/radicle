@@ -14,6 +14,7 @@
         <th>開催形式</th>
         <th>開催日付</th>
         <th>主催</th>
+        <th>開催地</th>
         <th>講座紹介</th>
       </tr>
       @foreach($seminars as $seminar)
@@ -21,6 +22,7 @@
         <td>{{$seminar->online_conference }}</td>
         <td>{{$seminar->seminar_date }}</td>
         <td><a href="/seminar/{{ $seminar->id }}">{{$seminar->eventologist }}</a></td>
+        <td>{{$seminartest->mst_prefectures_code->name}}</td>
         <td>{{$seminar->lead }}</td>
       </tr>
       @endforeach
