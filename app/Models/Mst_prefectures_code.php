@@ -8,7 +8,7 @@ class Mst_prefectures_code extends Model
 {
     //
     //テーブル名
-    protected $table = 'Mst_prefectures_code';
+    protected $table = 'mst_prefectures_codes';
 
     //可変項目
     protected $fillable = 

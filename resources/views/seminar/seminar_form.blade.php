@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>セミナー投稿フォーム</h2>
-        <form method="POST" action="{{ route('storeSeminar') }}" onSubmit="return checkSubmit()">
+        <form method="POST" action="{{ url('/seminar/store') }}" onSubmit="return checkSubmit()">
             @csrf
             {{-- //ここからラジクル --}}
             <div class="form-group">
@@ -128,11 +128,16 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="mst_prefecture">
+                <label for="mst_prefectures_code_id">
                     都道府県
                     {{-- 別テーブルに接続 mst_prefecture_code_id --}}
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <select name="mst_prefectures_code_id" class="form-control">
+                    <option value="">選択して下さい</option>
+                    @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
+                    <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option>
+                    @endforeach
+                </select>
                 @if ($errors->has('mst_prefecture'))
                 <div class="text-danger">
                     {{ $errors->first('mst_prefecture') }}

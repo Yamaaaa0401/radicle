@@ -13,14 +13,16 @@ class MstPrefecturesCodesTable extends Migration
      */
     public function up()
     {
-            if(!Schema::hasTable('mst_prefectures_codes')){
+        if(!Schema::hasTable('mst_prefectures_codes')){
             Schema::create('mst_prefectures_codes', function
              (Blueprint $table) {
-                $table->bigIncrements('id');
-                $table->string('name');
-                $table->integer('code',100);
+                $table->id('');
+                $table->string('name',100);
+                $table->integer('code');
                 $table->timestamps();
             });
+        }
+
     }
 
     /**
