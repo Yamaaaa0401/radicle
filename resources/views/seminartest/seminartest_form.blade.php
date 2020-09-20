@@ -24,8 +24,8 @@
                     </label>
                     <select name="area" class="form-control">
                         <option value="">選択して下さい</option>
-                        @foreach($prefectures as $prefecture => $name)
-                        <option value="{{ $prefectures->$id }}">{{$id}}</option>
+                        @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
+                        <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option>
                         @endforeach
                     </select>
 

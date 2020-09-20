@@ -31,8 +31,8 @@ class SeminartestController extends Controller
      * @return view
      */
     public function showCreate(){
-       $prefectures = Mst_prefectures_code::orderBy('id','asc')->first();
-        // dd($prefectures->toArray());
+       $prefectures = Mst_prefectures_code::orderBy('id','asc')->get();
+        // dd($prefectures);
         return view('seminartest.seminartest_form') -> with ('prefectures' , $prefectures );
     }
 
