@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Seminar;
 //SeminarRequest.phpからnamespace,clasのコピーを行なう
 use App\Http\Requests\SeminarRequest;
+use App\Models\Mst_prefectures_code;
+
 
 class SeminarController extends Controller
 {
