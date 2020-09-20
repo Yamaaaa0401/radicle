@@ -32,7 +32,7 @@ class Seminar extends Model
         'web',
         'image',
         'website',
-        'mst_prefecture_code_id',
+        'mst_prefectures_code_id',
         'unit_id',
         'application_id',
         'mst_seminar_contract_id'

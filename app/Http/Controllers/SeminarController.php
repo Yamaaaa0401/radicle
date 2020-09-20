@@ -18,9 +18,9 @@ class SeminarController extends Controller
      */
     public function showList()
     {
-        $seminars = Seminar::all();
-        return view('seminar.list',['seminars' => $seminars]);
-    }
+        $seminars = Seminar::with('mst_prefectures_code')->get();
+        return view('seminar.list') -> with ('seminars' , $seminars);
+        }
 
     /**
      * セミナー詳細を表示する
@@ -44,8 +44,9 @@ class SeminarController extends Controller
      * @return view
      */
     public function showCreate(){
-        return view('seminar.seminar_form');
-
+        $prefectures = Mst_prefectures_code::orderBy('id','asc')->get();
+// dd($prefectures);
+return view('seminar.seminar_form') -> with ('prefectures' , $prefectures );
     }
 
     /**

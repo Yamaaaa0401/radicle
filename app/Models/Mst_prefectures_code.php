@@ -15,6 +15,10 @@ class Mst_prefectures_code extends Model
     [
         //都道府県コード変更はなし
     ];
+    //セミナーテストモデルと紐付け
+public function seminartests(){
+return $this->hasMany(Seminartest::class);
+// return $this->hasMany('App\Models\Seminartest');
+}
 
-    
 }
