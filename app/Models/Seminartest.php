@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Seminartest extends Model
 {
     //
-        //テーブル名
+    //テーブル名
     protected $table = 'seminartests';
 
     //可変項目
