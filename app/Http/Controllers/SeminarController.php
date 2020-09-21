@@ -7,6 +7,7 @@ use App\Models\Seminar;
 //SeminarRequest.phpからnamespace,clasのコピーを行なう
 use App\Http\Requests\SeminarRequest;
 use App\Models\Mst_prefectures_code;
+use App\Models\Mst_format;
 
 
 class SeminarController extends Controller
@@ -20,8 +21,15 @@ class SeminarController extends Controller
      */
     public function showList()
     {
-        $seminars = Seminar::with('mst_prefectures_code')->get();
+
+        // $seminars = Seminar::with('mst_prefectures_code')->get();
+        $mst_formats = Seminar::with('mst_formats')->get();//開催形式のDBからデータを取ってくる
+        dd($seminars);
         return view('seminar.list') -> with ('seminars' , $seminars);
+
+
+        return view('seminar.list') -> with ('mst_formats' , $mst_formats);
+
         }
 
     /**

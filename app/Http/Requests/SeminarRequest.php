@@ -24,8 +24,8 @@ class SeminarRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required | max:100',
-            'content' => 'required'
+            'name' => 'required | max:100',
+            // 'content' => 'required'
         ];
     }
 }

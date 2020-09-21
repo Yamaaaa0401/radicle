@@ -11,7 +11,12 @@
                 <label for="mst_formats">
                     開催形式
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <select name="mst_prefectures_code_id" class="form-control">
+                    <option value="">選択して下さい</option>
+                    @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
+                    <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option>
+                    @endforeach
+                </select>
                 @if ($errors->has('mst_formats'))
                 <div class="text-danger">
                     {{ $errors->first('mst_formats') }}
@@ -132,7 +137,7 @@
                     都道府県
                     {{-- 別テーブルに接続 mst_prefecture_code_id --}}
                 </label>
-                <select name="mst_prefectures_code_id" class="form-control">
+                <select name="mst_format_id" class="form-control">
                     <option value="">選択して下さい</option>
                     @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
                     <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option>

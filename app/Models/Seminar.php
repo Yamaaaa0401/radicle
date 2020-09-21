@@ -13,7 +13,7 @@ class Seminar extends Model
     //可変項目
     protected $fillable = 
     [
-        'format_id',
+        'mst_format_id',
         'biz_user_id',
         'online_conference',
         'eventologist',
@@ -41,6 +41,11 @@ class Seminar extends Model
     //都道府県データをセミナーモデルに紐付ける
 public function mst_prefectures_code(){
 return $this->belongsTo(Mst_prefectures_code::class);
+// return $this->belongsTo('App\Models\Mst_prefectures_code');
+}
+    //開催形式データをセミナーモデルに紐付ける
+public function mst_format(){
+return $this->belongsTo(Mst_format::class);
 // return $this->belongsTo('App\Models\Mst_prefectures_code');
 }
 }
