@@ -42,11 +42,19 @@ class Seminar extends Model
     //開催形式データをセミナーモデルに紐付ける
 public function mst_format(){
 return $this->belongsTo(Mst_format::class);
-// return $this->belongsTo('App\Models\Mst_prefectures_code');
+// return $this->belongsTo('App\Models\Mst_format');
 }
     //都道府県データをセミナーモデルに紐付ける
 public function mst_prefectures_code(){
 return $this->belongsTo(Mst_prefectures_code::class);
 // return $this->belongsTo('App\Models\Mst_prefectures_code');
 }
+    //企業側ユーザーページをセミナーモデルに紐付ける
+public function biz_users(){
+return $this->belongsTo(Biz_user::class);
+// return $this->belongsTo('App\Models\Biz_user');
+}
+
+
+
 }

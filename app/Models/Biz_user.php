@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Biz_user extends Model
 {
     //テーブル名
-    protected $table = 'seminars';
+    protected $table = 'biz_users';
     
     //可変項目
     protected $fillable = 
@@ -29,5 +29,8 @@ class Biz_user extends Model
         'password',
         'mst_user_authority_id',
     ];
-
+    //セミナーテストモデルと紐付け
+    public function seminars(){
+    return $this->hasMany(Seminar::class);
+    }
 }
