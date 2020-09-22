@@ -57,7 +57,17 @@ return $this->belongsTo(Biz_user::class);
     //申込方法テーブル（application）をセミナーモデルに紐付ける
 public function application(){
 return $this->belongsTo(Application::class);
-// return $this->belongsTo('App\Models\Biz_user');
+// return $this->belongsTo('App\Models\Application');
+}
+    //契約状態テーブルをセミナーモデルに紐付ける
+public function mst_seminar_contract(){
+return $this->belongsTo(Mst_seminar_contract::class);
+// return $this->belongsTo('App\Models\Mst_seminar_contract');
+}
+    //セミナー画像テーブルをセミナーモデルに紐付ける
+public function seminar_image(){
+return $this->belongsTo(Seminar_image::class);
+// return $this->belongsTo('App\Models\Seminar_image');
 }
 
 
