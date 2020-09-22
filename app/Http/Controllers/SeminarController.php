@@ -8,6 +8,7 @@ use App\Models\Seminar;
 use App\Http\Requests\SeminarRequest;
 use App\Models\Mst_prefectures_code;
 use App\Models\Mst_format;
+use App\Models\Biz_user;
 
 
 class SeminarController extends Controller
