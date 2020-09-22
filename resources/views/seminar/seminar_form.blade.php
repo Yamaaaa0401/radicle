@@ -11,10 +11,10 @@
                 <label for="mst_formats">
                     開催形式
                 </label>
-                <select name="mst_prefectures_code_id" class="form-control">
+                <select name="mst_format_id" class="form-control">
                     <option value="">選択して下さい</option>
-                    @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
-                    <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option>
+                    @foreach($formats as $format)都道府県1つずつを変数名にする --}}
+                    <option value="{{ $format -> id }}">{{$format -> name}}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('mst_formats'))
@@ -27,7 +27,8 @@
                 <label for="biz_users">
                     オンライン開催配信方法
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="online_conference" class="form-control"
+                    rows="1">{{ old('online_conference') }}</textarea>
                 @if ($errors->has('biz_users'))
                 <div class="text-danger">
                     {{ $errors->first('biz_users') }}
@@ -38,7 +39,7 @@
                 <label for="eventologist">
                     主催
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="eventologist" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('eventologist'))
                 <div class="text-danger">
                     {{ $errors->first('eventologist') }}
@@ -49,7 +50,7 @@
                 <label for="name">
                     セミナー名
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="name" class="form-control" rows="1">{{ old('name') }}</textarea>
                 @if ($errors->has('name'))
                 <div class="text-danger">
                     {{ $errors->first('name') }}
@@ -60,7 +61,7 @@
                 <label for="lead">
                     記事の説明
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="lead" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('lead'))
                 <div class="text-danger">
                     {{ $errors->first('lead') }}
@@ -114,7 +115,8 @@
                 <label for="capacity_supplement">
                     定員補足
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="capacity_supplement" class="form-control"
+                    rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('capacity_supplement'))
                 <div class="text-danger">
                     {{ $errors->first('capacity_supplement') }}
@@ -125,7 +127,8 @@
                 <label for="seminar_description">
                     セミナー概要
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="seminar_description" class="form-control"
+                    rows="1">{{ old('seminar_description') }}</textarea>
                 @if ($errors->has('seminar_description'))
                 <div class="text-danger">
                     {{ $errors->first('seminar_description') }}
@@ -140,7 +143,11 @@
                 <select name="mst_format_id" class="form-control">
                     <option value="">選択して下さい</option>
                     @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
-                    <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option>
+                    <option value="{{ $prefecture -> id}}">
+                        {{$prefecture -> name}}
+                    </option>
+                    {{-- @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
+                    {{-- <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option> --}}
                     @endforeach
                 </select>
                 @if ($errors->has('mst_prefecture'))
@@ -153,7 +160,7 @@
                 <label for="address">
                     住所
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="address" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('address'))
                 <div class="text-danger">
                     {{ $errors->first('address') }}
@@ -164,7 +171,7 @@
                 <label for="venue">
                     会場
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="venue" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('venue'))
                 <div class="text-danger">
                     {{ $errors->first('venue') }}
@@ -188,7 +195,7 @@
                 <label for="subject">
                     対象者
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="subject" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('subject'))
                 <div class="text-danger">
                     {{ $errors->first('subject') }}
@@ -200,7 +207,7 @@
                 <label for="qualification">
                     認定資格名
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="qualification" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('qualification'))
                 <div class="text-danger">
                     {{ $errors->first('qualification') }}
@@ -225,7 +232,7 @@
                 <label for="application">
                     申込方法
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="application" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('application'))
                 <div class="text-danger">
                     {{ $errors->first('application') }}
@@ -236,7 +243,7 @@
                 <label for="cautionary_point">
                     参加の注意事項
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="cautionary_point" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('cautionary_point'))
                 <div class="text-danger">
                     {{ $errors->first('cautionary_point') }}
@@ -247,7 +254,7 @@
                 <label for="image">
                     紹介写真・画像
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="image" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('image'))
                 <div class="text-danger">
                     {{ $errors->first('image') }}
@@ -258,7 +265,7 @@
                 <label for="website">
                     ホームページURL
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="website" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('website'))
                 <div class="text-danger">
                     {{ $errors->first('website') }}
@@ -270,7 +277,7 @@
                 <label for="tag">
                     主なカテゴリタグ
                 </label>
-                <textarea id="content" name="content" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="tag" class="form-control" rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('tag'))
                 <div class="text-danger">
                     {{ $errors->first('tag') }}

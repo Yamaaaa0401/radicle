@@ -12,9 +12,6 @@ use App\Models\Mst_format;
 
 class SeminarController extends Controller
 {
-    //(M)SeminarModelを呼び出す
-    //(C)ControllerからBladeに渡す
-    //(V)Bladeで表示する
     /**
      * セミナー一覧を表示する
      * @return view
@@ -22,15 +19,27 @@ class SeminarController extends Controller
     public function showList()
     {
 
-        // $seminars = Seminar::with('mst_prefectures_code')->get();
-        $mst_formats = Seminar::with('mst_formats')->get();//開催形式のDBからデータを取ってくる
-        dd($seminars);
-        return view('seminar.list') -> with ('seminars' , $seminars);
+        $seminars = Seminar::with('mst_format','mst_prefectures_code')->get();//都道府県DB、開催形式DBからデータを取ってくる
+        // dd($mst_formats);
 
-
-        return view('seminar.list') -> with ('mst_formats' , $mst_formats);
-
+        return view('seminar.list') -> with ('seminars' , $seminars );//都道府県データと開催形式データをまとめてlist(一覧へ表示したい) 
+        // return view('seminar.list') -> with ('seminars' , $seminars );
         }
+
+
+    /**
+     * セミナー登録画面を表示する
+     *
+     * @return view
+     */
+    public function showCreate(){
+        $prefectures = Mst_prefectures_code::orderBy('id','asc')->get();
+        $formats = Mst_format::orderBy('id','asc')->get();
+        // dd($formats);
+
+        // return view('seminar.seminar_form') -> with ('prefectures' , $prefectures );
+        return view('seminar.seminar_form',compact('prefectures','formats'));
+    }
 
     /**
      * セミナー詳細を表示する
@@ -48,17 +57,6 @@ class SeminarController extends Controller
 
         return view('seminar.seminar_detail',['seminar' => $seminar]);//詳細は単数形
     }
-    /**
-     * セミナー登録画面を表示する
-     *
-     * @return view
-     */
-    public function showCreate(){
-        $prefectures = Mst_prefectures_code::orderBy('id','asc')->get();
-// dd($prefectures);
-return view('seminar.seminar_form') -> with ('prefectures' , $prefectures );
-    }
-
     /**
      * セミナー登録する
      *

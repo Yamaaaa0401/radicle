@@ -25,7 +25,7 @@ class SeminarRequest extends FormRequest
     {
         return [
             'name' => 'required | max:100',
-            // 'content' => 'required'
+            // 'tag' => 'required'
         ];
     }
 }

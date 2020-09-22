@@ -38,14 +38,15 @@ class Seminar extends Model
         'mst_seminar_contract_id'
     ];
 
-    //都道府県データをセミナーモデルに紐付ける
-public function mst_prefectures_code(){
-return $this->belongsTo(Mst_prefectures_code::class);
-// return $this->belongsTo('App\Models\Mst_prefectures_code');
-}
+
     //開催形式データをセミナーモデルに紐付ける
 public function mst_format(){
 return $this->belongsTo(Mst_format::class);
+// return $this->belongsTo('App\Models\Mst_prefectures_code');
+}
+    //都道府県データをセミナーモデルに紐付ける
+public function mst_prefectures_code(){
+return $this->belongsTo(Mst_prefectures_code::class);
 // return $this->belongsTo('App\Models\Mst_prefectures_code');
 }
 }
