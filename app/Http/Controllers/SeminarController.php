@@ -20,7 +20,7 @@ class SeminarController extends Controller
     {
 
         $seminars = Seminar::with('mst_format','mst_prefectures_code')->get();//都道府県DB、開催形式DBからデータを取ってくる
-        // dd($mst_formats);
+        // dd($seminars);
 
         return view('seminar.list') -> with ('seminars' , $seminars );//都道府県データと開催形式データをまとめてlist(一覧へ表示したい) 
         // return view('seminar.list') -> with ('seminars' , $seminars );
@@ -67,22 +67,22 @@ class SeminarController extends Controller
     {
         //セミナーデータを受け取る
         $inputs = $request->all();
-
+        // dd( $request->all());
         \DB::beginTransaction();
         //エラーの表示
         try{
             //セミナーを登録
             Seminar::create($inputs);
+            // dd( $request->all());
             \DB::commit();
-        }catch(\Throwable $e){
-            //できたらここでログを出力する（未）
+            }catch(\Throwable $e){
             \DB::rollback();
             abort(500);
         }
 
 
         \Session::flash('err_msg','ブログを登録しました');
-        return redirect(route('seminars'));
+        return redirect(url("/"));
     }
 
 

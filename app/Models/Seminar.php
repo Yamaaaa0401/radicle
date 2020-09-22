@@ -30,7 +30,7 @@ class Seminar extends Model
         'qualification',
         'qualification_point',
         'web',
-        'image',
+        'seminar_image_id',
         'website',
         'mst_prefectures_code_id',
         'unit_id',

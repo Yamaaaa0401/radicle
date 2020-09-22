@@ -12,9 +12,9 @@
                     開催形式
                 </label>
                 <select name="mst_format_id" class="form-control">
-                    <option value="">選択して下さい</option>
-                    @foreach($formats as $format)都道府県1つずつを変数名にする --}}
-                    <option value="{{ $format -> id }}">{{$format -> name}}</option>
+
+                    @foreach($formats as $format)
+                    <option value="{{ $format ->id }}">{{$format -> name}}</option>
                     @endforeach
                 </select>
                 @if ($errors->has('mst_formats'))
@@ -135,24 +135,22 @@
                 </div>
                 @endif
             </div>
-            <div class="form-group">
+            <div class="mst_prefectures_code_id">
                 <label for="mst_prefectures_code_id">
                     都道府県
                     {{-- 別テーブルに接続 mst_prefecture_code_id --}}
                 </label>
-                <select name="mst_format_id" class="form-control">
-                    <option value="">選択して下さい</option>
+                <select name="mst_prefectures_code_id" class="form-control_prefecture">
+
                     @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
-                    <option value="{{ $prefecture -> id}}">
+                    <option value="{{ $prefecture ->id}}">
                         {{$prefecture -> name}}
                     </option>
-                    {{-- @foreach($prefectures as $prefecture){{--都道府県1つずつを変数名にする--}}
-                    {{-- <option value="{{ $prefecture -> id }}">{{$prefecture -> name}}</option> --}}
                     @endforeach
                 </select>
-                @if ($errors->has('mst_prefecture'))
+                @if ($errors->has('mst_prefectures_code_id'))
                 <div class="text-danger">
-                    {{ $errors->first('mst_prefecture') }}
+                    {{ $errors->first('mst_prefectures_code_id') }}
                 </div>
                 @endif
             </div>
@@ -207,7 +205,8 @@
                 <label for="qualification">
                     認定資格名
                 </label>
-                <textarea id="content" name="qualification" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="qualification" class="form-control"
+                    rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('qualification'))
                 <div class="text-danger">
                     {{ $errors->first('qualification') }}
@@ -243,7 +242,8 @@
                 <label for="cautionary_point">
                     参加の注意事項
                 </label>
-                <textarea id="content" name="cautionary_point" class="form-control" rows="1">{{ old('content') }}</textarea>
+                <textarea id="content" name="cautionary_point" class="form-control"
+                    rows="1">{{ old('content') }}</textarea>
                 @if ($errors->has('cautionary_point'))
                 <div class="text-danger">
                     {{ $errors->first('cautionary_point') }}
@@ -251,13 +251,14 @@
                 @endif
             </div>
             <div class="form-group">
-                <label for="image">
+                <label for="seminar_image_id">
                     紹介写真・画像
                 </label>
-                <textarea id="content" name="image" class="form-control" rows="1">{{ old('content') }}</textarea>
-                @if ($errors->has('image'))
+                <textarea id="content" name="seminar_image_id" class="form-control"
+                    rows="1">{{ old('seminar_image_id') }}</textarea>
+                @if ($errors->has('seminar_image_id'))
                 <div class="text-danger">
-                    {{ $errors->first('image') }}
+                    {{ $errors->first('seminar_image_id') }}
                 </div>
                 @endif
             </div>
