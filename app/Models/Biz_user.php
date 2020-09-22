@@ -29,7 +29,7 @@ class Biz_user extends Model
         'password',
         'mst_user_authority_id',
     ];
-    //セミナーテストモデルと紐付け
+    //セミナーモデルと紐付け
     public function seminars(){
     return $this->hasMany(Seminar::class);
     }

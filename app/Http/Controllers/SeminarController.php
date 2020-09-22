@@ -9,6 +9,8 @@ use App\Http\Requests\SeminarRequest;
 use App\Models\Mst_prefectures_code;
 use App\Models\Mst_format;
 use App\Models\Biz_user;
+use App\Models\Application;
+use App\Models\Mst_seminar_contract;
 
 
 class SeminarController extends Controller
@@ -20,10 +22,10 @@ class SeminarController extends Controller
     public function showList()
     {
 
-        $seminars = Seminar::with('mst_format','mst_prefectures_code','biz_user')->get();//都道府県DB、開催形式DBからデータを取ってくる
+        $seminars = Seminar::with('mst_format','mst_prefectures_code','biz_user','mst_seminar_contract')->get();
         // dd($seminars);
 
-        return view('seminar.list') -> with ('seminars' , $seminars );//都道府県データと開催形式データをまとめてlist(一覧へ表示したい) 
+        return view('seminar.list') -> with ('seminars' , $seminars );
         // return view('seminar.list') -> with ('seminars' , $seminars );
         }
 

@@ -50,8 +50,13 @@ return $this->belongsTo(Mst_prefectures_code::class);
 // return $this->belongsTo('App\Models\Mst_prefectures_code');
 }
     //企業側ユーザーページをセミナーモデルに紐付ける
-public function biz_users(){
+public function biz_user(){
 return $this->belongsTo(Biz_user::class);
+// return $this->belongsTo('App\Models\Biz_user');
+}
+    //申込方法テーブル（application）をセミナーモデルに紐付ける
+public function application(){
+return $this->belongsTo(Application::class);
 // return $this->belongsTo('App\Models\Biz_user');
 }
 
