@@ -4,7 +4,8 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>セミナー投稿フォーム</h2>
-        <form method="POST" action="{{ url('/seminar/store') }}" onSubmit="return checkSubmit()">
+        <form method="POST" action="{{ url('/seminar/store') }}" onSubmit="return checkSubmit()"
+            enctype="multipart/form-data">
             @csrf
             {{-- //ここからラジクル --}}
             <div class="form-group">
@@ -231,10 +232,24 @@
                 <label for="application">
                     申込方法
                 </label>
-                <textarea id="content" name="application" class="form-control" rows="1">{{ old('content') }}</textarea>
-                @if ($errors->has('application'))
+                <p>
+                    <input type="radio" name="application_name" value="use_form" checked="checked">自社のお問い合わせフォームを利用する
+                </p>
+                <p>
+                    <input type="radio" name="application_name" value="unuse_form">問い合わせフォームを利用しない
+                </p>
+                <p>申込み・お問い合わせ方法の詳細をご入力ください。</p>
+                <textarea id="content" name="application_detail" class="form-control"
+                    rows="4">{{ old('application_detail') }}</textarea>
+                <p>利用するお問い合わせフォームのページURLをご入力ください。</p>
+                <textarea id="content" name="url" class="form-control" rows="1">{{ old('url') }}</textarea>
+                <p>※セミナーを配信される場合はURLを入力してください。</p>
+                <textarea id="content" name="delivery_url" class="form-control"
+                    rows="1">{{ old('delivery_url') }}</textarea>
+
+                @if ($errors->has('application_name'))
                 <div class="text-danger">
-                    {{ $errors->first('application') }}
+                    {{ $errors->first('application_name') }}
                 </div>
                 @endif
             </div>
@@ -254,8 +269,8 @@
                 <label for="seminar_image_id">
                     紹介写真・画像
                 </label>
-                <textarea id="content" name="seminar_image_id" class="form-control"
-                    rows="1">{{ old('seminar_image_id') }}</textarea>
+                <input type="file" name="seminar_image_id" id="myfile"><br>
+                <img id="img1" name="seminar_image" style="max-width:250px;max-heigth:250px;" />
                 @if ($errors->has('seminar_image_id'))
                 <div class="text-danger">
                     {{ $errors->first('seminar_image_id') }}
@@ -304,5 +319,6 @@ if(window.confirm('送信してよろしいですか？')){
     return false;
 }
 }
+
 </script>
 @endsection

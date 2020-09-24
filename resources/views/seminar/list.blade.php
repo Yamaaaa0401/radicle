@@ -13,6 +13,7 @@
       <tr>
         <th>開催形式</th>
         <th>開催日付</th>
+        <th>セミナーイメージ</th>
         <th>主催</th>
         <th>開催地</th>
         <th>講座紹介</th>
@@ -21,6 +22,7 @@
       <tr>
         <td>{{$seminar->mst_format->name}}</td>
         <td>{{$seminar->seminar_date }}</td>
+        <td><img src="{{ asset('image/' . $seminar->seminar_image_id) }}" alt="{{ $seminar->seminar_image_id }}"></td>
         <td><a href="{{action("SeminarController@showDetail",$seminar->id) }}">{{$seminar->eventologist }}</a></td>
         <td>{{$seminar->mst_prefectures_code->name}}</td>
         <td>{{$seminar->lead }}</td>

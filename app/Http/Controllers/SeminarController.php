@@ -68,25 +68,34 @@ class SeminarController extends Controller
     //バリデーション：Request−＞SeminarRequestに変える
     public function exeStore(SeminarRequest $request)
     {
+
+        // dd( $request->all());
+
         //セミナーデータを受け取る
         $inputs = $request->all();
-        // dd( $request->all());
         \DB::beginTransaction();
-        //エラーの表示
-        try{
+
+        //エラーの検証
             //セミナーを登録
             Seminar::create($inputs);
             // dd( $request->all());
             \DB::commit();
-            }catch(\Throwable $e){
-            \DB::rollback();
-            abort(500);
-        }
+        //エラーの検証ここまで
+
+        //エラーの表示
+        // try{
+        //     //セミナーを登録
+        //     Seminar::create($inputs);
+        //     // dd( $request->all());
+        //     \DB::commit();
+        //     }catch(\Throwable $e){
+        //     \DB::rollback();
+        //     abort(500);
+        // }
+
 
 
         \Session::flash('err_msg','ブログを登録しました');
         return redirect(url("/"));
     }
-
-
 }
