@@ -269,7 +269,7 @@
                 <label for="seminar_image_id">
                     紹介写真・画像
                 </label>
-                <input type="file" name="seminar_image_id" id="myfile"><br>
+                <input type="file" name="seminar_image_id" id="myfile" accept="image/*"><br>
                 <img id="img1" name="seminar_image" style="max-width:250px;max-heigth:250px;" />
                 @if ($errors->has('seminar_image_id'))
                 <div class="text-danger">

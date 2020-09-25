@@ -82,6 +82,14 @@ class SeminarController extends Controller
             \DB::commit();
         //エラーの検証ここまで
 
+        //画像保存テストコード
+            $seminarimage = Seminar::where('seminar_image_id', $seminar)->first();
+            //↓で保存しています。
+            $filePath = $request->file('seminar_image_id')->store('images');
+            $seminarimage->seminar_image_id = basename($filePath);
+            $seminarimage->save();
+        //ここまで画像保存テストコード
+
         //エラーの表示
         // try{
         //     //セミナーを登録
@@ -95,7 +103,7 @@ class SeminarController extends Controller
 
 
 
-        \Session::flash('err_msg','ブログを登録しました');
+        \Session::flash('err_msg','セミナーを登録しました');
         return redirect(url("/"));
     }
 }
