@@ -7,10 +7,15 @@
 
     <table class="table table-striped">
       <h4>開催情報</h4>
-      <span>{{$seminar->created_at}}掲載</span>
+      <h6>
+        <span>{{$seminar->created_at}}掲載</span>
+      </h6>
       <tr>
-        <th>主催</th>
-        <td>{{ $seminar->eventologist }}</td>
+        <span><img src="{{ asset( 'storage/images/' .$seminar->seminar_image_id) }}"
+            style="max-width: 600px; max-height: 400px;"></span>
+      </tr>
+      <th>主催</th>
+      <td>{{ $seminar->eventologist }}</td>
       </tr>
       <tr>
         <th>開催日</th>

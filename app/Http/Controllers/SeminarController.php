@@ -68,16 +68,16 @@ class SeminarController extends Controller
     {
         //画像ファイルをstorageへ保存する
         $file = $request->file('seminar_image_id')->store('public/images'); //storage>app>publicに入る
-        // $file = $request->file('seminar_image_id')->store('public/images'); //storage>app>publicに入る
+        $filename = str_replace('public/images/', '', $file);
         // 画像ファイルが空かチェック
-        if(empty($file)){
+        if(empty($filename)){
             // ファイル名を取得
-            $move = $file->store('public/images/'); //public/upload....
-            $filename = ltrim($move, '');
+            $move = $filename->store('public/images/'); //public/upload....
+            $file_check_name = ltrim($move, '');
             // $filename = ltrim($move, 'public/images/');
 
         }else{
-            $filename = "";
+            $file_check_name = "";
         }
 
         //セミナーデータを登録 変数inputs の new Seminarの箱を作ってデータを格納
@@ -105,7 +105,7 @@ class SeminarController extends Controller
         $inputs ->unit_id  = request('unit_id');
         $inputs ->application_id  = request('application_id');
         $inputs ->web  = request('');
-        $inputs ->seminar_image_id  = $file;
+        $inputs ->seminar_image_id  = $filename;
         $inputs ->website = request('website');
         $inputs ->mst_seminar_contract_id  = request('mst_seminar_contract_id');
         $inputs ->application_name  = request('application_name');
