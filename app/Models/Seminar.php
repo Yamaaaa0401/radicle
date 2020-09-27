@@ -35,7 +35,13 @@ class Seminar extends Model
         'mst_prefectures_code_id',
         'unit_id',
         'application_id',
-        'mst_seminar_contract_id'
+        'mst_seminar_contract_id',
+        'tag',
+        'cautionary_point',
+        'delivery_url',
+        'url',
+        'application_detail',
+        'application_name',
     ];
 
 

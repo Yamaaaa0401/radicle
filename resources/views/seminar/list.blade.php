@@ -22,7 +22,11 @@
       <tr>
         <td>{{$seminar->mst_format->name}}</td>
         <td>{{$seminar->seminar_date }}</td>
-        <td><img src="{{ asset('image/' . $seminar->seminar_image_id) }}" alt="{{ $seminar->seminar_image_id }}"></td>
+        <td><img src="{{ asset( 'storage/images/' .$seminar->seminar_image_id) }}"
+            style="max-width: 400px; max-height: 400px;"></td>
+        {{-- <td><img src="{{ asset( 'storage/images/6lNNi13eqjFVoO5nZqb3cwlh6ouCO1FKEpcrkTTX.png') }}"
+        style="max-width: 400px; max-height: 400px;"></td>//この名前ならば表示される --}}
+        {{-- <img src="{{ asset('storage/img/' .$event->img) }}" class="rsv_img_size"> --}}
         <td><a href="{{action("SeminarController@showDetail",$seminar->id) }}">{{$seminar->eventologist }}</a></td>
         <td>{{$seminar->mst_prefectures_code->name}}</td>
         <td>{{$seminar->lead }}</td>

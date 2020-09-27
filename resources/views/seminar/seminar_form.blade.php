@@ -238,18 +238,38 @@
                 <p>
                     <input type="radio" name="application_name" value="unuse_form">問い合わせフォームを利用しない
                 </p>
-                <p>申込み・お問い合わせ方法の詳細をご入力ください。</p>
-                <textarea id="content" name="application_detail" class="form-control"
-                    rows="4">{{ old('application_detail') }}</textarea>
-                <p>利用するお問い合わせフォームのページURLをご入力ください。</p>
-                <textarea id="content" name="url" class="form-control" rows="1">{{ old('url') }}</textarea>
-                <p>※セミナーを配信される場合はURLを入力してください。</p>
-                <textarea id="content" name="delivery_url" class="form-control"
-                    rows="1">{{ old('delivery_url') }}</textarea>
-
                 @if ($errors->has('application_name'))
                 <div class="text-danger">
                     {{ $errors->first('application_name') }}
+                </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <p>申込み・お問い合わせ方法の詳細をご入力ください。</p>
+                <textarea id="content" name="application_detail" class="form-control"
+                    rows="4">{{ old('application_detail') }}</textarea>
+                @if ($errors->has('application_detail'))
+                <div class="text-danger">
+                    {{ $errors->first('application_detail') }}
+                </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <p>利用するお問い合わせフォームのページURLをご入力ください。</p>
+                <textarea id="content" name="url" class="form-control" rows="1">{{ old('url') }}</textarea>
+                @if ($errors->has('form-control'))
+                <div class="text-danger">
+                    {{ $errors->first('form-control') }}
+                </div>
+                @endif
+            </div>
+            <div class="form-group">
+                <p>※セミナーを配信される場合はURLを入力してください。</p>
+                <textarea id="content" name="delivery_url" class="form-control"
+                    rows="1">{{ old('delivery_url') }}</textarea>
+                @if ($errors->has('delivery_url'))
+                <div class="text-danger">
+                    {{ $errors->first('delivery_url') }}
                 </div>
                 @endif
             </div>
@@ -267,9 +287,10 @@
             </div>
             <div class="form-group">
                 <label for="seminar_image_id">
-                    紹介写真・画像
+                    セミナー紹介写真・画像
                 </label>
-                <input type="file" name="seminar_image_id" id="myfile" accept="image/*"><br>
+                {{-- <input type="file" name="seminar_image_id" id="myfile" accept="image/*"><br> --}}
+                <input type="file" name="seminar_image_id" id="myfile"><br>
                 <img id="img1" name="seminar_image" style="max-width:250px;max-heigth:250px;" />
                 @if ($errors->has('seminar_image_id'))
                 <div class="text-danger">
@@ -288,37 +309,35 @@
                 </div>
                 @endif
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 {{-- //カテゴリの登録もできるようにしたい --}}
-                <label for="tag">
-                    主なカテゴリタグ
-                </label>
-                <textarea id="content" name="tag" class="form-control" rows="1">{{ old('content') }}</textarea>
-                @if ($errors->has('tag'))
-                <div class="text-danger">
-                    {{ $errors->first('tag') }}
-                </div>
-                @endif
-            </div>
-            <div class="mt-5">
-                <a class="btn btn-secondary" href="{{ route('seminars') }}">
-                    キャンセル
-                </a>
-                <button type="submit" class="btn btn-primary">
-                    投稿する
-                </button>
-            </div>
-        </form>
+            {{-- <label for="tag_id">
+                主なカテゴリタグ
+            </label> --}}
+            {{-- <textarea id="content" name="tag_id" class="form-control" rows="1">{{ old('content') }}</textarea>
+            --}}
+            {{-- @if ($errors->has('tag_id'))
+            <div class="text-danger">
+                {{ $errors->first('tag_id') }}
     </div>
+    @endif --}}
+    {{-- </div> --}}
+    <div class="mt-5">
+        <a class="btn btn-secondary" href="{{ route('seminars') }}">キャンセル</a>
+        <button type="submit" class="btn btn-primary">
+            投稿する
+        </button>
+    </div>
+    </form>
+</div>
 </div>
 <script>
     function checkSubmit(){
-if(window.confirm('送信してよろしいですか？')){
-    return true;
-} else {
-    return false;
-}
-}
-
+        if(window.confirm('送信してよろしいですか？')){
+        return true;
+        } else {
+        return false;
+        }
+    }
 </script>
 @endsection
