@@ -27,3 +27,7 @@ Route::post('/seminar/store', 'SeminarController@exeStore')
 //セミナー詳細画面を表示  ここよりも上に登録画面をつくる
 Route::get('/seminar/{id}', 'SeminarController@showDetail')
 ->name('showSeminar');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
