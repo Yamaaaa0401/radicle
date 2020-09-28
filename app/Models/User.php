@@ -18,6 +18,13 @@ class User extends Model
         'given_name',
         'workplace',
         'title',
-        'qualification'
+        'qualification',
+        'mst_gender_id',
+        'registration_year_id',
+        'mst_prefecture_code_id',
+        'mst_user_newsletter_id',
+        'mst_user_authority_id',
+        'user_avatar_id'
+
     ];  
 }
