@@ -74,7 +74,7 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="名字を入力して下さい" required autocomplete="name" autofocus>
+                                    name="name" placeholder="名字を入力して下さい" required autocomplete="name" autofocus>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -88,7 +88,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">名</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                                    name="name" value="氏名を入力してください" required autocomplete="name" autofocus>
+                                    name="name" placeholder="氏名を入力してください" required autocomplete="name" autofocus>
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -99,91 +99,114 @@
                         {{--性別選択--}}
                         <div class="form-group row">
                             <label for="mst_gender_id" class="col-md-4 col-form-label text-md-right">性別</label>
-                            <input type=”radio” name="gender" value="mst_gender_id">男性
-                            <input type=”radio” name="gender" value="mst_gender_id">女性
+                            <p>
+                                <input type="radio" name="mst_gender_id" value="mst_gender_id" checked="checked">男性
+                                <input type="radio" name="mst_gender_id" value="mst_gender_id">女性
+                            </p>
                             @error('mst_gender_id')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
+
+                        {{--ライセンス登録年度選択--}}
+                        <div class="form-group row">
+                            <label for="mst_gender_id" class="col-md-4 col-form-label text-md-right">診療放射線技師
+                                登録年度</label>
+                            <select name="mst_gender_id" size="2" autofocus disable multiple ・・・>
+                                <option value="1">2014年/平成26年度登録</option>
+                                <option value="2">2013年/平成25年度登録</option>
+                            </select>
+                            @error('mst_gender_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+
+                        {{--勤務先登録--}}
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">勤務先</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" placeholder="ラジくる病院/ラジくる大学/らじくる株式会社" required autocomplete="name"
+                                    autofocus>
+
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{--都道府県選択--}}
+                        <div class="form-group row">
+                            <label for="mst_gender_id" class="col-md-4 col-form-label text-md-right">勤務先の都道府県</label>
+                            <select name="mst_gender_id" size="2" autofocus disable multiple ・・・>
+                                <option value="1">北海道県</option>
+                                <option value="2">青森県</option>
+                            </select>
+                            @error('mst_gender_id')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+
+
+                        {{--勤務先登録--}}
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">肩書</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" placeholder="学生/講師/教授/マネージャー/〇〇" required autocomplete="name" autofocus>
+
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{--専門資格登録--}}
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">専門資格</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                                    name="name" placeholder="専門資格をお持ちの方は入力してください" required autocomplete="name"
+                                    autofocus>
+
+
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Register') }}
+                                </button>
+                            </div>
+                        </div>
                 </div>
-                {{--ライセンス登録年度選択--}}
-                <div class="form-group row">
-                    <label for="mst_gender_id" class="col-md-4 col-form-label text-md-right">診療放射線技師 登録年度</label>
-                    <select name="mst_gender_id" size="2" autofocus disable multiple ・・・>
-                        <option value="1">2014年/平成26年度登録</option>
-                        <option value="2">2013年/平成25年度登録</option>
-                    </select>
-                    @error('mst_gender_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-
-            {{--勤務先登録--}}
-            <div class="form-group row">
-                <label for="name" class="col-md-4 col-form-label text-md-right">勤務病院/学校/勤務先</label>
-
-                <div class="col-md-6">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                        value="ラジくる病院/ラジくる大学/らじくる株式会社" required autocomplete="name" autofocus>
-
-
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-            </div>
-
-            {{--都道府県選択--}}
-            <div class="form-group row">
-                <label for="mst_gender_id" class="col-md-4 col-form-label text-md-right">勤務病院/学校/勤務先の都道府県</label>
-                <select name="mst_gender_id" size="2" autofocus disable multiple ・・・>
-                    <option value="1">北海道県</option>
-                    <option value="2">青森県</option>
-                </select>
-                @error('mst_gender_id')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                </form>
             </div>
         </div>
-
-        {{--勤務先登録--}}
-        <div class="form-group row">
-            <label for="name" class="col-md-4 col-form-label text-md-right">肩書</label>
-
-            <div class="col-md-6">
-                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                    value="学生/講師/教授/マネージャー/〇〇" required autocomplete="name" autofocus>
-
-
-                @error('name')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
-            </div>
-        </div>
-
-
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4">
-                <button type="submit" class="btn btn-primary">
-                    {{ __('Register') }}
-                </button>
-            </div>
-        </div>
-        </form>
     </div>
-</div>
-</div>
 </div>
 </div>
 @endsection
