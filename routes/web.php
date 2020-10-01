@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//ユーザー登録画面を表示
+Route::get('/', 'SeminarController@showList')
+->name('seminars');
+
 //セミナー一覧画面を表示
 Route::get('/', 'SeminarController@showList')
 ->name('seminars');

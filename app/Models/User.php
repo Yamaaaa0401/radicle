@@ -26,5 +26,11 @@ class User extends Model
         'mst_user_authority_id',
         'user_avatar_id'
 
-    ];  
+    ];
+
+    //ユーザーデータをセミナーモデルに紐付ける
+public function mst_prefectures_code(){
+return $this->belongsTo(Mst_prefectures_code::class);
+// return $this->belongsTo('App\Models\Mst_prefectures_code');
+}
 }

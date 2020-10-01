@@ -12,7 +12,7 @@
       </h6>
       <tr>
         <span><img src="{{ asset( 'storage/images/' .$seminar->seminar_image_id) }}"
-            style="max-width: 600px; max-height: 400px;"></span>
+            style="max-width: 600px; max-height: 400px; "></span>
       </tr>
       <th>主催</th>
       <td>{{ $seminar->eventologist }}</td>

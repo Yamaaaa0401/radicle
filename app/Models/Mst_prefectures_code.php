@@ -20,5 +20,10 @@ public function seminars(){
 return $this->hasMany(Seminar::class);
 // return $this->hasMany('App\Models\Seminartest');
 }
+    //セミナーモデルと紐付け
+public function users(){
+return $this->hasMany(User::class);
+// return $this->hasMany('App\Models\Seminartest');
+}
 
 }

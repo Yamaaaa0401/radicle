@@ -13,7 +13,6 @@
                     開催形式
                 </label>
                 <select name="mst_format_id" class="form-control">
-
                     @foreach($formats as $format)
                     <option value="{{ $format ->id }}">{{$format -> name}}</option>
                     @endforeach
@@ -290,8 +289,8 @@
                     セミナー紹介写真・画像
                 </label>
                 {{-- <input type="file" name="seminar_image_id" id="myfile" accept="image/*"><br> --}}
-                <input type="file" name="seminar_image_id" id="myfile"><br>
-                <img id="img1" name="seminar_image" style="max-width:250px;max-heigth:250px;" />
+                <input type="file" name="seminar_image_id" id="myfile">
+                <br><img id="img1" name="seminar_image" style="max-width:250px;max-heigth:250px;" /><br>
                 @if ($errors->has('seminar_image_id'))
                 <div class="text-danger">
                     {{ $errors->first('seminar_image_id') }}
