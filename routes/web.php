@@ -32,6 +32,14 @@ Route::post('/seminar/store', 'SeminarController@exeStore')
 Route::get('/seminar/{id}', 'SeminarController@showDetail')
 ->name('showSeminar');
 
-Auth::routes();
+// Auth::routes();
+Auth::routes([
+    'register' => false // ユーザ登録機能をオフに切替
+]);
+// 自作ユーザー登録のための記載
+ Route::get('/register', 'Auth\RegisterController@getRegister')->name('register');
+
+ Route::post('/register', 'Auth\RegisterController@postRegister')->name('register');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
