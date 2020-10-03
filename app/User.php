@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
+
 
 class User extends Authenticatable
 {
@@ -33,11 +35,18 @@ class User extends Authenticatable
         'user_avatar_id'
     ];
 
-        //ユーザーデータをセミナーモデルに紐付ける
-        public function mst_prefectures_code(){
-    return $this->belongsTo(Mst_prefectures_code::class);
-    // return $this->belongsTo('App\Models\Mst_prefectures_code');
-    }
+    //     //ユーザーデータをセミナーモデルに紐付ける
+    //     public function mst_prefectures_code(){
+    // return $this->belongsTo(Mst_prefectures_code::class);
+    // // return $this->belongsTo('App\Models\Mst_prefectures_code');
+    // }
+
+    //都道府県データをセミナーモデルに紐付ける
+public function mst_prefectures_code(){
+return $this->belongsTo(Mst_prefectures_code::class);
+// return $this->belongsTo('App\Models\Mst_prefectures_code');
+}
+
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -55,4 +64,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
 }

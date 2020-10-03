@@ -33,13 +33,31 @@ Route::get('/seminar/{id}', 'SeminarController@showDetail')
 ->name('showSeminar');
 
 // Auth::routes();
-Auth::routes([
-    'register' => false // ユーザ登録機能をオフに切替
+Auth::routes(['register' => false 
+// ユーザ登録機能をオフに切替
 ]);
-// 自作ユーザー登録のための記載
- Route::get('/register', 'Auth\RegisterController@getRegister')->name('register');
 
- Route::post('/register', 'Auth\RegisterController@postRegister')->name('register');
+// 自作ユーザー登録画面を表示
+Route::get('/register', 'Auth\RegisterController@getRegister')
+->name('register');
+
+//ユーザー登録
+Route::post('/register', 'Auth\RegisterController@postRegister')
+->name('register');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+// パスワード変更通常のアクセス（GET）の場合↓メソッド
+Route::get('/setting/password', 'Auth\ChangePasswordController@showChangePasswordForm')->name('password.form');
+// パスワード変更の処理（POST）の場合は↓メソッド
+Route::post('/setting/password', 'Auth\ChangePasswordController@changePassword')->name('password.change');
+
+//アカウント削除のアクセス
+Route::get('/setting/deactive', 'Auth\DeactiveController@showDeactiveForm')->name('deactive.form');
+//アカウント削除
+Route::post('/setting/deactive', 'Auth\DeactiveController@deactive')->name('deactive');
+
+Route::get('/setting', 'SettingController@index')
+->name('setting');
+
+Route::get('/home', 'HomeController@index')
+->name('home');

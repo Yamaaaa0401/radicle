@@ -36,8 +36,11 @@ class RegisterController extends Controller
      */
     public function getRegister()
     {
-        return view('auth.register');
+        $prefectures = Mst_prefectures_code::orderBy('id','asc')->get();
+        return view('auth.register',compact('prefectures'));
     }
+
+    
 
     /**
      * ユーザ登録機能
@@ -55,7 +58,6 @@ class RegisterController extends Controller
             'mst_gender_id' => $data['mst_gender_id'],
             'registration_year_id' => $data['registration_year_id'],
             'workplace' => $data['workplace'],
-            'mst_prefecture_code_id' => $data['mst_prefecture_code_id'],
             'title' => $data['title'],
             'qualification' => $data['qualification'],
             'mst_user_newsletter_id' => $data['mst_user_newsletter_id'],

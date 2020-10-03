@@ -28,23 +28,27 @@
           <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false" v-pre>
-              {{ Auth::user()->name }}
+              {{ Auth::user()->family_name }}
+              {{ Auth::user()->given_name }}
             </a>
-
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+            <ul class="dropdown-menu" role="menu">
+              <li>
+                <a class="dropdown-item" href="{{ route('setting') }}">マイページ</a>
+              </li>
+              <li>
+                <a class=" dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
-                {{ __('Logout') }}
-              </a>
-
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                @csrf
-              </form>
-            </div>
-          </li>
-          @endguest
-        </ul>
+                  {{ __('Logout') }}</a>
+              </li>
+            </ul>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+            </form>
       </div>
+      </li>
+      @endguest
+      </ul>
     </div>
-  </nav>
+</div>
+</nav>
 </div>
