@@ -33,7 +33,7 @@
             </a>
             <ul class="dropdown-menu" role="menu">
               <li>
-                <a class="dropdown-item" href="{{ route('setting') }}">マイページ</a>
+                <a class="dropdown-item" href="{{ route('index') }}">マイページ</a>
               </li>
               <li>
                 <a class=" dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

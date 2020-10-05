@@ -5,52 +5,48 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">新規{{ __('Register') }}</div>
+                {{-- <div class="card-header"><a class="nav-link" href="{{ route('index') }}">{{ ('ユーザー情報変更') }}</a>
+                --}}
+                <div class="card-header"><a class="nav-link" href="{{ route('showedit') }}">ユーザー情報変更</a>
+                </div>
+            </div>
 
-                <div class="card-body">
-                    @csrf
-                    {{--ID非表示--}}
-                    <div class="profile-group" hidden="true">
-                        <div name="id" class="profile-group__element">{{$auth->id}}</div>
+            <div class="card-body">
+                @csrf
+                {{--ID非表示--}}
+                <div class="profile-group" hidden="true">
+                    <div name="id" class="profile-group__element">{{$auth->id}}</div>
+                </div>
+                {{--メールアドレス入力--}}
+                <div class="profile-group">
+                    <div class="col-md-6">
+                        <label class="profile-group__title">メールアドレス</label>
+                        <label name="email" class="profile-group__element">{{$auth->email}}</label>
                     </div>
-                    {{--メールアドレス入力--}}
+                </div>
+
+                {{--名字入力--}}
+                <div class="col-md-6">
                     <div class="profile-group">
-                        <div class="col-md-6">
-                            <label class="profile-group__title">メールアドレス</label>
-                            <label name="email" class="profile-group__element">{{$auth->email}}</label>
-                        </div>
+                        <label class="profile-group__title">名字</label>
+                        <label name="family_name" class="profile-group__element">{{$auth->family_name}}</label>
                     </div>
-
-                    {{--ユーザー名入力--}}
-                    {{-- <div class="col-md-6">
-                        <div class="profile-group">
-                            <label class="profile-group__title">ユーザー名</label>
-                            <div name="username" class="profile-group__element">{{$auth->username}}</div>
-            </div>
-        </div> --}}
-
-        {{--名字入力--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">名字</label>
-                <label name="family_name" class="profile-group__element">{{$auth->family_name}}</label>
-            </div>
-        </div>
-        {{--名前入力--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">名前</label>
-                <label name="given_name" class="profile-group__element">{{$auth->given_name}}</label>
-            </div>
-        </div>
-        {{--性別選択--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">性別</label>
-                <label name="mst_gender_id" class="profile-group__element">{{$auth->mst_gender_id}}</label>
-            </div>
-        </div>
-        {{-- <div class="form-inline" id="selectGender" th:field="*{gender}">
+                </div>
+                {{--名前入力--}}
+                <div class="col-md-6">
+                    <div class="profile-group">
+                        <label class="profile-group__title">名前</label>
+                        <label name="given_name" class="profile-group__element">{{$auth->given_name}}</label>
+                    </div>
+                </div>
+                {{--性別選択--}}
+                <div class="col-md-6">
+                    <div class="profile-group">
+                        <label class="profile-group__title">性別</label>
+                        <label name="mst_gender_id" class="profile-group__element">{{$auth->mst_gender_id}}</label>
+                    </div>
+                </div>
+                {{-- <div class="form-inline" id="selectGender" th:field="*{gender}">
                                 <label class="radio-inline">
                                     <input type="radio" name="mst_gender_id" checked="checked" value="FEMALE">
                                     <span>女性</span>
@@ -67,15 +63,16 @@
 
         </div> --}}
 
-        {{--ライセンス登録年度選択--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">登録年度</label>
-                <label name="registration_year_id" class="profile-group__element">{{$auth->registration_year_id}}
-                </label>
-            </div>
-        </div>
-        {{-- <div class="col-md-6">
+                {{--ライセンス登録年度選択--}}
+                <div class="col-md-6">
+                    <div class="profile-group">
+                        <label class="profile-group__title">登録年度</label>
+                        <label name="registration_year_id"
+                            class="profile-group__element">{{$auth->registration_year_id}}
+                        </label>
+                    </div>
+                </div>
+                {{-- <div class="col-md-6">
                     <label for="registration_year_id" class="col-md-4 col-form-label text-md-right">診療放射線技師
                         登録年度</label>
                     <div class="col-md-6">
@@ -154,25 +151,25 @@
 
                 </div> --}}
 
-        {{--勤務先登録--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">先登録</label>
-                <label name="workplace" class="profile-group__element">{{$auth->workplace}}
-                </label>
-            </div>
-        </div>
+                {{--勤務先登録--}}
+                <div class="col-md-6">
+                    <div class="profile-group">
+                        <label class="profile-group__title">勤務先</label>
+                        <label name="workplace" class="profile-group__element">{{$auth->workplace}}
+                        </label>
+                    </div>
+                </div>
 
-        {{--都道府県選択--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">都道府県</label>
-                <label name="mst_prefecture_code_id" class="profile-group__element">
-                    {{$auth->mst_prefecture_code_id}}
-                </label>
-            </div>
-        </div>
-        {{-- <div class="col-md-6">
+                {{--都道府県選択--}}
+                <div class="col-md-6">
+                    <div class="profile-group">
+                        <label class="profile-group__title">都道府県</label>
+                        <label name="mst_prefecture_code_id" class="profile-group__element">
+                            {{$auth->mst_prefecture_code_id}}
+                        </label>
+                    </div>
+                </div>
+                {{-- <div class="col-md-6">
                     <label for="mst_prefecture_code_id" class="col-md-4 col-form-label text-md-right">勤務先の都道府県</label>
                     <div class="col-md-6">
                         <select class="form-control" id="mst_prefecture_code_id" name="mst_prefecture_code_id">
@@ -231,34 +228,35 @@
                 </div> --}}
 
 
-        {{--肩書登録--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">肩書</label>
-                <label name="title" class="profile-group__element">
-                    {{$auth->title}}
-                </label>
-            </div>
-        </div>
+                {{--肩書登録--}}
+                <div class="col-md-6">
+                    <div class="profile-group">
+                        <label class="profile-group__title">肩書</label>
+                        <label name="title" class="profile-group__element">
+                            {{$auth->title}}
+                        </label>
+                    </div>
+                </div>
 
-        {{--専門資格登録--}}
-        <div class="col-md-6">
-            <div class="profile-group">
-                <label class="profile-group__title">肩書</label>
-                <label name="qualification" class="profile-group__element">
-                    {{$auth->qualification}}
-                </label>
-            </div>
-        </div>
+                {{--専門資格登録--}}
+                <div class="col-md-6">
+                    <div class="profile-group">
+                        <label class="profile-group__title">肩書</label>
+                        <label name="qualification" class="profile-group__element">
+                            {{$auth->qualification}}
+                        </label>
+                    </div>
+                </div>
 
 
-        {{-- <div class="col-md-6 mb-0">
+                {{-- <div class="col-md-6 mb-0">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">
                             {{ __('Register') }}
-        </button>
+                </button>
+            </div>
+        </div> --}}
     </div>
-</div> --}}
 </div>
 </div>
 </div>

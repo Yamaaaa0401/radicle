@@ -6,59 +6,52 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">ユーザー情報編集</div>
-
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    {{-- <form method="post" action="{{ route('postedit') }}"> --}}
+                    <form method="post" action="{{ route('postedit', $auth->id) }}">
                         @csrf
+                        {{-- <form method="post" action="{{ route('postedit', $auth->id) }}"> --}}
+
                         {{--メールアドレス入力--}}
-                        <fieldset class="form-group row">
+                        <div class="form-group row">
                             <label for="email"
                                 class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email">
-                            </div>
-                        </fieldset>
-                        {{--ユーザー名入力--}}
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">ユーザー名</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text"
-                                    class="form-control @error('username') is-invalid @enderror" name="username"
-                                    value="{{ old('username') }}" required autocomplete="username" autofocus>
-
-
+                                    name="email" value="{{ $auth->email }}" required autocomplete="email">
                             </div>
                         </div>
+
+
+
                         {{--名字入力--}}
                         <div class="form-group row">
                             <label for="family_name" class="col-md-4 col-form-label text-md-right">姓</label>
-
                             <div class="col-md-6">
                                 <input id="family_name" type="text"
                                     class="form-control @error('family_name') is-invalid @enderror" name="family_name"
-                                    placeholder="名字を入力して下さい" required autocomplete="family_name" autofocus>
-
+                                    placeholder="名字を入力して下さい" value="{{ $auth->family_name }}" required
+                                    autocomplete="family_name" autofocus>
                             </div>
                         </div>
+
                         {{--名前入力--}}
                         <div class="form-group row">
                             <label for="given_name" class="col-md-4 col-form-label text-md-right">名</label>
                             <div class="col-md-6">
                                 <input id="given_name" type="text"
                                     class="form-control @error('given_name') is-invalid @enderror" name="given_name"
-                                    placeholder="氏名を入力してください" required autocomplete="given_name" autofocus>
-
+                                    placeholder="氏名を入力してください" value="{{ $auth->given_name }}" required
+                                    autocomplete="given_name" autofocus>
                             </div>
                         </div>
+
                         {{--性別選択--}}
                         <div class="form-group row">
                             <label for="mst_gender_id" class="col-md-4 col-form-label text-md-right">性別</label>
                             <div class="form-inline" id="selectGender" th:field="*{gender}">
                                 <label class="radio-inline">
-                                    <input type="radio" name="mst_gender_id" checked="checked" value="FEMALE">
+                                    <input type="radio" name="mst_gender_id" value="FEMALE">
                                     <span>女性</span>
                                 </label>
                                 <label class="radio-inline">
@@ -70,7 +63,6 @@
                                     <span>その他</span>
                                 </label>
                             </div>
-
                         </div>
 
                         {{--ライセンス登録年度選択--}}
@@ -89,7 +81,7 @@
                                     <option value="Y2017">2017年 / 平成29年登録(4年目)</option>
                                     <option value="Y2016">2016年 / 平成28年登録(5年目)</option>
                                     <option value="Y2015">2015年 / 平成27年登録(6年目)</option>
-                                    <option selected="selected" value="Y2014">2014年 / 平成26年登録(7年目)</option>
+                                    <option value="Y2014">2014年 / 平成26年登録(7年目)</option>
                                     <option value="Y2013">2013年 / 平成25年登録(8年目)</option>
                                     <option value="Y2012">2012年 / 平成24年登録(9年目)</option>
                                     <option value="Y2011">2011年 / 平成23年登録(10年目)</option>
@@ -150,18 +142,16 @@
                                     <option value="OTHER">その他</option>
                                 </select>
                             </div>
-
                         </div>
 
                         {{--勤務先登録--}}
                         <div class="form-group row">
                             <label for="workplace" class="col-md-4 col-form-label text-md-right">勤務先</label>
-
                             <div class="col-md-6">
                                 <input id="workplace" type="text"
                                     class="form-control @error('workplace') is-invalid @enderror" name="workplace"
-                                    placeholder="ラジくる病院/ラジくる大学/らじくる株式会社" required autocomplete="workplace" autofocus>
-
+                                    placeholder="ラジくる病院/ラジくる大学/らじくる株式会社" value="{{ $auth->workplace }}" required
+                                    autocomplete="workplace" autofocus>
                             </div>
                         </div>
 
@@ -222,46 +212,40 @@
                                     <option value="48">海外</option>
                                 </select>
                             </div>
-
                         </div>
-
 
                         {{--肩書登録--}}
                         <div class="form-group row">
                             <label for="title" class="col-md-4 col-form-label text-md-right">肩書</label>
-
                             <div class="col-md-6">
                                 <input id="title" type="text" class="form-control @error('title') is-invalid @enderror"
-                                    name="title" placeholder="学生/講師/教授/マネージャー/〇〇" required autocomplete="title"
-                                    autofocus>
-
+                                    name="title" placeholder="学生/講師/教授/マネージャー/〇〇" value="{{ $auth->title }}" required
+                                    autocomplete="title" autofocus>
                             </div>
                         </div>
 
                         {{--専門資格登録--}}
                         <div class="form-group row">
                             <label for="qualification" class="col-md-4 col-form-label text-md-right">専門資格</label>
-
                             <div class="col-md-6">
                                 <input id="qualification" type="text"
                                     class="form-control @error('qualification') is-invalid @enderror"
-                                    name="qualification" placeholder="専門資格をお持ちの方は入力してください" required
-                                    autocomplete="qualification" autofocus>
-
-
+                                    name="qualification" placeholder="専門資格をお持ちの方は入力してください"
+                                    value="{{ $auth->qualification }}" required autocomplete="qualification" autofocus>
                             </div>
                         </div>
 
-
+                        {{--変更登録--}}
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ ('  変更  ') }}
                                 </button>
                             </div>
                         </div>
+
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>

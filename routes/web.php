@@ -46,18 +46,34 @@ Route::post('/register', 'Auth\RegisterController@postRegister')
 ->name('register');
 
 
-// パスワード変更通常のアクセス（GET）の場合↓メソッド
-Route::get('/setting/password', 'Auth\ChangePasswordController@showChangePasswordForm')->name('password.form');
-// パスワード変更の処理（POST）の場合は↓メソッド
-Route::post('/setting/password', 'Auth\ChangePasswordController@changePassword')->name('password.change');
+// // パスワード変更通常のアクセス（GET）の場合↓メソッド
+// Route::get('/setting/password', 'Auth\ChangePasswordController@showChangePasswordForm')
+// ->name('password.form');
+
+// // パスワード変更の処理（POST）の場合は↓メソッド
+// Route::post('/setting/password', 'Auth\ChangePasswordController@changePassword')
+// ->name('password.change');
 
 //アカウント削除のアクセス
-Route::get('/setting/deactive', 'Auth\DeactiveController@showDeactiveForm')->name('deactive.form');
-//アカウント削除
-Route::post('/setting/deactive', 'Auth\DeactiveController@deactive')->name('deactive');
+// Route::get('/setting/deactive', 'Auth\DeactiveController@showDeactiveForm')
+// ->name('deactive.form');
 
-Route::get('/setting', 'SettingController@index')
-->name('setting');
+//アカウント削除
+// Route::post('/setting/deactive', 'Auth\DeactiveController@deactive')
+// ->name('deactive');
+
+// ユーザー情報表示
+Route::get('/index', 'SettingController@index')
+->name('index');
+
+//ユーザー情報変更表示
+Route::get('/index/edit', 'SettingController@showEdit')
+->name('showedit');
+
+//ユーザー情報変更登録
+Route::post('/index/edit', 'SettingController@postEdit')
+->name('postedit');
+
 
 Route::get('/home', 'HomeController@index')
 ->name('home');
