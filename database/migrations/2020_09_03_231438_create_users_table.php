@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
                 $table->string('title',100);
                 $table->string('qualification',100);
                 $table->integer('mst_gender_id');
-                $table->integer('registration_year_id	');
+                $table->integer('registration_year_id');
                 $table->integer('mst_prefecture_code_id');
                 $table->integer('mst_user_newsletter_id');
                 $table->integer('mst_user_authority_id');
