@@ -22,7 +22,7 @@
         <footer class="footer bg-dark  fixed-bottom">
             @include('footer')
         </footer>
-        <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
         <script>
             $(function(){
                                 $('#myfile').change(function(e){
