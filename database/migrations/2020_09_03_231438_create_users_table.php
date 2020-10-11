@@ -13,8 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        // 主キーの指定
-    protected $primaryKey = 'id';
+
 
         if(!Schema::hasTable('users')){
             Schema::create('users', function

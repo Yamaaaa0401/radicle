@@ -12,6 +12,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // 主キーの指定
+    protected $primaryKey = 'framework_id';
+
     /**
      * The attributes that are mass assignable.
      *

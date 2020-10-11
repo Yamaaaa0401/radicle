@@ -9,6 +9,9 @@ class Seminar extends Model
 {
     //テーブル名
     protected $table = 'seminars';
+    // 主キーの指定
+    protected $primaryKey = 'id';
+
 
     //可変項目
     protected $fillable = 
