@@ -11,7 +11,7 @@
         <span>{{$seminar->created_at}}掲載</span>
       </h6>
       <tr>
-        <span><img src="{{ asset( 'storage/images/' .$seminar->seminar_image_id) }}"
+        <span><img src="{{ asset( 'storage/app/public/images/' .$seminar->seminar_image_id) }}"
             style="max-width: 600px; max-height: 400px; "></span>
       </tr>
       <th>主催</th>

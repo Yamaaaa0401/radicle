@@ -9,7 +9,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link active" href="{{url("/")}}">セミナー一覧 <span class="sr-only"></span></a>
-          <a class="nav-item nav-link" href="{{ route('createSeminar') }}">セミナー投稿</a>
+          {{-- <a class="nav-item nav-link" href="{{ route('createSeminar') }}">セミナー投稿</a> --}}
         </div>
 
         <!-- Right Side Of Navbar -->
@@ -36,9 +36,11 @@
                 <a class="dropdown-item" href="{{ route('index') }}">マイページ</a>
               </li>
               <li>
+                <a class="dropdown-item" href="{{ route('createSeminar') }}">セミナー投稿</a>
+              </li>
+              <li>
                 <a class=" dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}</a>
+                  document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
               </li>
             </ul>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

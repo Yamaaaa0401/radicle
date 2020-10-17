@@ -23,7 +23,8 @@
         <tr>
           <td>{{$seminar->mst_format->name}}</td>
           <td>{{$seminar->seminar_date }}</td>
-          <td><img src="{{ asset( 'storage/images/' .$seminar->seminar_image_id) }}"
+          <td><img src="{{ asset( 'storage/app/public/images/' .$seminar->seminar_image_id) }}"
+              {{-- <td><img src="{{ asset( 'storage/images/' .$seminar->seminar_image_id) }}" --}}
               style="max-width: 400px; max-height: 400px; text-align:center;"></td>
           {{-- <td><img src="{{ asset( 'storage/images/6lNNi13eqjFVoO5nZqb3cwlh6ouCO1FKEpcrkTTX.png') }}"
           style="max-width: 400px; max-height: 400px;"></td>//この名前ならば表示される --}}
