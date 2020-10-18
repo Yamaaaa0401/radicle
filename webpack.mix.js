@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,5 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
+mix.js("resources/js/app.js", "public/js").sass(
+    "resources/sass/app.scss",
+    "public/css"
+);
+mix.less("resources/less/app.less", "public/css").less(
+    "resources/less/admin.less",
+    "public/css"
+);
+// sassメソッドは、SassをCSSへコンパイルします
+mix.sass("resources/sass/app.scss", "public/css").sass(
+    "resources/sass/admin.sass",
+    "public/css/admin"
+);
+// stylusメソッドにより、StylusをCSSへコンパイルできます
+mix.stylus("resources/stylus/app.styl", "public/css", {
+    use: [require("rupture")()]
+});

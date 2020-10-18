@@ -34,6 +34,7 @@ class SettingController extends Controller
     $auth = Auth::user();
     // dd($auth->all());
     return view('setting.edit',[ 'auth' => $auth ]);
+
     }
 
     public function postedit(ChangeSettingRequest $request,$id)
@@ -41,7 +42,7 @@ class SettingController extends Controller
        //ValidationはChangeNameRequestで処理
        //氏名変更処理
         $user = Auth::user($id);
-                dd($user->all());
+                // dd($user->all());
 
         $user->name = $request->get('name');
         $user->family_name = $request->get('family_name');
