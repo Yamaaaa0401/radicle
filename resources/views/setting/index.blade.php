@@ -18,34 +18,35 @@
                     <div class="profile-group" hidden="true">
                         <div name="id" class="profile-group__element">{{$auth->id}}</div>
                     </div>
-                    {{--メールアドレス入力--}}
-                    <div class="profile-group">
-                        <div class="col-md-6">
-                            <label class="profile-group__title">メールアドレス</label>
-                            <label name="email" class="profile-group__element">{{$auth->email}}</label>
-                        </div>
-                    </div>
+
 
                     {{--名字入力--}}
                     <div class="col-md-6">
                         <div class="profile-group">
-                            <label class="profile-group__title">名前</label>
-                            <label name="family_name"
-                                class="profile-group__element">{{$auth->family_name}}{{$auth->given_name}}</label>
+                            <label class="profile-group__title">氏名：</label>
+                            <label name="family_name" class="profile-group__element m-1">{{$auth->family_name}}
+                                {{$auth->given_name}}</label>
                         </div>
                     </div>
                     {{--勤務先登録--}}
                     <div class="col-md-6">
                         <div class="profile-group">
-                            <label class="profile-group__title">勤務先</label>
-                            <label name="workplace" class="profile-group__element">{{$auth->workplace}}
+                            <label class="profile-group__title">所属：</label>
+                            <label name="workplace" class="profile-group__element m-1 ">{{$auth->workplace}}
                             </label>
+                        </div>
+                    </div>
+                    {{--メールアドレス入力--}}
+                    <div class="profile-group">
+                        <div class="col-md-6">
+                            <label class="profile-group__title">メールアドレス：</label>
+                            <label name="email" class="profile-group__element m-1">{{$auth->email}}</label>
                         </div>
                     </div>
                 </div>
             </div>
-            {{--切り替えタブの挿入 参考：https://kishiken.com/css/css-tab/--}}
-            <div class="container">
+            {{--切り替えタブの挿入 参考：https://kodocode.net/design-css-tab/--}}
+            <div class="container out_margin">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab" aria-controls="home"

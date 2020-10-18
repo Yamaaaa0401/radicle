@@ -23,9 +23,9 @@
 
     <body>
         <div id="app">
-            <nav class="navbar navbar-expand-md  navbar-dark bg-dark shadow-sm">
+            <nav class="navbar navbar-expand-md  navbar-success bg-success shadow-sm">
                 <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand text-white" href="{{ url('/') }}">
                         ラジくる
                         {{-- {{ config('app.name', 'Laravel') }} --}}
                     </a>
@@ -46,11 +46,11 @@
                             <!-- Authentication Links -->
                             @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                             @endif
                             @else

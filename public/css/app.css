@@ -10950,10 +10950,6 @@ a.text-dark:focus {
         min-width: 992px !important;
     }
 
-    .container {
-        min-width: 992px !important;
-    }
-
     .navbar {
         display: none;
     }
@@ -11012,4 +11008,8 @@ a.text-dark:focus {
 
 .tab-pane:first-child .tab-pane-header {
     border-top-left-radius: 0;
+}
+
+.out_margin {
+    margin-top: 30px;
 }

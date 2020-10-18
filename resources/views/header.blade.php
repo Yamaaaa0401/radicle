@@ -1,14 +1,14 @@
 <div id="app">
-  <nav class="navbar navbar-expand-md  navbar-dark bg-dark shadow-sm">
+  <nav class="navbar navbar-expand-md  navbar-success bg-success  shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="#">ラジくる</a>
+      <a class="navbar-brand text-white" href="#">ラジくる</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active" href="{{url("/")}}">セミナー一覧 <span class="sr-only"></span></a>
+          <a class="nav-item nav-link active text-white" href="{{url("/")}}">セミナー一覧 <span class="sr-only"></span></a>
           {{-- <a class="nav-item nav-link" href="{{ route('createSeminar') }}">セミナー投稿</a> --}}
         </div>
 
@@ -17,26 +17,26 @@
           <!-- Authentication Links -->
           @guest
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            <a class="nav-link text-white" href="{{ route('login') }}">{{ __('Login') }}</a>
           </li>
           @if (Route::has('register'))
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Register') }}</a>
           </li>
           @endif
           @else
-          <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false" v-pre>
+          <li class="nav-item dropdown text-white">
+            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->family_name }}
               {{ Auth::user()->given_name }}
             </a>
-            <ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu text-white" role="menu">
               <li>
-                <a class="dropdown-item" href="{{ route('index') }}">マイページ</a>
+                <a class="dropdown-item text-dark" href="{{ route('index') }}">マイページ</a>
               </li>
               <li>
-                <a class="dropdown-item" href="{{ route('createSeminar') }}">セミナー投稿</a>
+                <a class="dropdown-item text-dark" href="{{ route('createSeminar') }}">セミナー投稿</a>
               </li>
               <li>
                 <a class=" dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
