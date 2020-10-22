@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 
 #tab1:checked ~ .tabarea1 .tab1_label {
     background: #fff;
@@ -11033,7 +11033,7 @@ a.text-dark:focus {
 .card-custom-img::after {
     position: absolute;
     content: "";
-    top: 161px;
+    top: 230px;
     left: 0;
     width: 0;
     height: 0;
@@ -11053,8 +11053,26 @@ a.text-dark:focus {
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
     position: absolute;
-    top: 100px;
-    left: 1.25rem;
-    width: 100px;
-    height: 100px;
+    top: 40%;
+    left: 1rem;
+    width: 80px;
+    height: 80px;
+}
+.text_inline_block {
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.seminarlist {
+    font-size: 80%;
+    white-space: nowrap;
+}
+
+.list_top {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
