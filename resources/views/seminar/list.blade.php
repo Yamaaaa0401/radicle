@@ -10,32 +10,82 @@
         {{ session('err_msg')}}
       </p>
       @endif
-      <table class="table table-striped">
-        <tr>
-          <th>開催形式</th>
-          <th>開催日付</th>
-          <th>セミナーイメージ</th>
-          <th>主催</th>
-          <th>開催地</th>
-          <th>講座紹介</th>
-        </tr>
-        @foreach($seminars as $seminar)
-        <tr>
-          <td>{{$seminar->mst_format->name}}</td>
-          <td>{{$seminar->seminar_date }}</td>
-          <td><img src="{{ asset( 'storage/app/public/images/' .$seminar->seminar_image_id) }}"
-              {{-- <td><img src="{{ asset( 'storage/images/' .$seminar->seminar_image_id) }}" --}}
-              style="max-width: 400px; max-height: 400px; text-align:center;"></td>
-          {{-- <td><img src="{{ asset( 'storage/images/6lNNi13eqjFVoO5nZqb3cwlh6ouCO1FKEpcrkTTX.png') }}"
-          style="max-width: 400px; max-height: 400px;"></td>//この名前ならば表示される --}}
-          {{-- <img src="{{ asset('storage/img/' .$event->img) }}" class="rsv_img_size"> --}}
-          <td><a href="{{action("SeminarController@showDetail",$seminar->id) }}">{{$seminar->eventologist }}</a></td>
-          <td>{{$seminar->mst_prefectures_code->name}}</td>
-          <td>{{$seminar->lead }}</td>
-        </tr>
-        @endforeach
-      </table>
     </div>
   </div>
 </div>
+
+{{-- テストコード --}}
+<div class="container">
+  <div class="row pt-5 m-auto">
+
+    @foreach($seminars as $seminar)
+    <div class="col-md-6 col-lg-4 pb-3">
+
+      <!-- Add a style="height: XYZpx" to div.card to limit the card height and display scrollbar instead -->
+      <div class="card card-custom bg-white border-white border-0" style="height: 500px">
+
+
+        {{-- テストリスト --}}
+        <div class="list_top">
+
+          <div>
+            {{$seminar->mst_format->name}}
+          </div>
+          <div>
+            {{$seminar->created_at}}
+          </div>
+        </div>
+        {{-- テストリスト --}}
+
+        {{-- 参考URL：https://www.it-swarm-ja.tech/ja/css/laravel%E3%81%A7css%E7%94%BB%E5%83%8F%E3%81%AEurl%E3%82%92%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%99%E3%82%8B/829774053/ --}}
+        <div class="card-custom-img"
+          style="background-image: url({{ asset( 'storage/app/public/images/' .$seminar->seminar_image_id) }});">
+        </div>
+        <div class="card-custom-avatar">
+          <img class="img-fluid"
+            {{-- src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" --}}
+            src="{{ asset( 'storage/app/public/images/user_２.jpg') }}" alt="Avatar" />
+        </div>
+        {{-- テストテーブル --}}
+        <div style="padding-top:20px">
+          <table>
+            <th class="seminarlist">セミナー</th>
+            <td class="text_inline_block seminarlist">{{$seminar->name}}</td>
+          </table>
+        </div>
+        <div class="card-body" style="overflow-y: auto">
+          <table class="table  card-title">
+            <th>開催日</th>
+            <td>{{$seminar->seminar_date}}</td>
+            </tr>
+            <tr>
+              <th>開催時間</th>
+              <td>{{$seminar->seminar_starttime}}</td>
+            </tr>
+            <tr>
+              <th>開催場所</th>
+              <td>{{$seminar->mst_prefectures_code->name}}</td>
+            </tr>
+            <tr>
+              <th>費用</th>
+              <td>{{$seminar->fee}}</td>
+            </tr>
+          </table>
+          {{-- ここまで --}}
+          {{-- <div class="card-body" style="overflow-y: auto"> --}}
+          <p class=" card-title">{{$seminar->name}}</p>
+          <p class=" card-text">講座紹介</p>
+          <p class="card-text">{{$seminar->seminar_description}}</p>
+        </div>
+        <div class="card-footer" style="background: inherit; border-color: inherit;">
+          <a href="{{action("SeminarController@showDetail",$seminar->id) }}" class="btn btn-primary">詳細</a>
+          {{-- <a href="#" class="btn btn-outline-primary">Other option</a> --}}
+          <p>{{$seminar->name}}</p>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+</div>
+{{-- ここまで --}}
 @endsection

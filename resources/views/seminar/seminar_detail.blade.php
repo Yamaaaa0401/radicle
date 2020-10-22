@@ -14,8 +14,9 @@
         <span><img src="{{ asset( 'storage/app/public/images/' .$seminar->seminar_image_id) }}"
             style="max-width: 600px; max-height: 400px; "></span>
       </tr>
-      <th>主催</th>
-      <td>{{ $seminar->eventologist }}</td>
+      <tr>
+        <th>主催</th>
+        <td>{{ $seminar->eventologist }}</td>
       </tr>
       <tr>
         <th>開催日</th>
