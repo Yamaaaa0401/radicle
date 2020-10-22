@@ -10988,8 +10988,7 @@ a.text-dark:focus {
         border-color: #dee2e6;
     }
 }
-<<<<<<< HEAD
-=======
+
 .nav-tabs {
     border-bottom: none;
 }
@@ -11015,9 +11014,7 @@ a.text-dark:focus {
 .out_margin {
     margin-top: 30px;
 }
-<<<<<<< HEAD
->>>>>>> dev
-=======
+
 /* ここからテストコード */
 .card-custom {
     overflow: hidden;
@@ -11081,4 +11078,3 @@ a.text-dark:focus {
     margin: 0;
     padding: 0;
 }
->>>>>>> dev
