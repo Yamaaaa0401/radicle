@@ -55,16 +55,18 @@
         </div>
         <div class="card-body" style="overflow-y: auto">
           <table class="table  card-title">
-            <th>開催日</th>
-            <td>{{$seminar->seminar_date}}</td>
-            </tr>
-            <tr>
-              <th>開催時間</th>
-              <td>{{$seminar->seminar_starttime}}</td>
-            </tr>
             <tr>
               <th>開催場所</th>
               <td>{{$seminar->mst_prefectures_code->name}}</td>
+            </tr>
+            <tr>
+              <th>開催日</th>
+              <td>{{$seminar->seminar_date}}</td>
+            </tr>
+            <tr>
+            <tr>
+              <th>開催時間</th>
+              <td>{{$seminar->seminar_starttime}}</td>
             </tr>
             <tr>
               <th>費用</th>
