@@ -27,12 +27,11 @@
 
         {{-- テストリスト --}}
         <div class="list_top">
-
-          <div>
+          <div class="mst_format">
             {{$seminar->mst_format->name}}
           </div>
-          <div>
-            {{$seminar->created_at}}
+          <div class="mst_format_date">
+            {{$seminar->seminar_date}}開催
           </div>
         </div>
         {{-- テストリスト --}}
@@ -47,10 +46,10 @@
             src="{{ asset( 'storage/app/public/images/user_２.jpg') }}" alt="Avatar" />
         </div>
         {{-- テストテーブル --}}
-        <div style="padding-top:20px">
+        <div style="padding: 20px 0px 0px 20px">
           <table>
-            <th class="seminarlist">セミナー</th>
-            <td class="text_inline_block seminarlist">{{$seminar->name}}</td>
+            {{-- <th class="seminarlist">セミナー</th> --}}
+            <td class="text_inline_block seminarlist">主催：{{$seminar->name}}</td>
           </table>
         </div>
         <div class="card-body" style="overflow-y: auto">
@@ -60,29 +59,26 @@
               <td>{{$seminar->mst_prefectures_code->name}}</td>
             </tr>
             <tr>
-              <th>開催日</th>
-              <td>{{$seminar->seminar_date}}</td>
-            </tr>
-            <tr>
             <tr>
               <th>開催時間</th>
-              <td>{{$seminar->seminar_starttime}}</td>
+              <td>{{$seminar->seminar_starttime}}〜</td>
             </tr>
             <tr>
               <th>費用</th>
-              <td>{{$seminar->fee}}</td>
+              <td>{{$seminar->fee}}円</td>
             </tr>
           </table>
           {{-- ここまで --}}
           {{-- <div class="card-body" style="overflow-y: auto"> --}}
-          <p class=" card-title">{{$seminar->name}}</p>
-          <p class=" card-text">講座紹介</p>
+          <p class=" card-text">【講座紹介】</p>
           <p class="card-text">{{$seminar->seminar_description}}</p>
         </div>
         <div class="card-footer" style="background: inherit; border-color: inherit;">
-          <a href="{{action("SeminarController@showDetail",$seminar->id) }}" class="btn btn-primary">詳細</a>
-          {{-- <a href="#" class="btn btn-outline-primary">Other option</a> --}}
-          <p>{{$seminar->name}}</p>
+          <div class="seminar_detail">
+            <a href="{{action("SeminarController@showDetail",$seminar->id) }}"
+              class="btn text-white bg-secondary">詳細を見る</a>
+            {{-- <a href="#" class="btn btn-outline-primary">Other option</a> --}}
+          </div>
         </div>
       </div>
     </div>

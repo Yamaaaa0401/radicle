@@ -654,6 +654,7 @@ pre code {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    margin-bottom: 3em;
 }
 
 .no-gutters {
@@ -1805,7 +1806,7 @@ pre code {
 
 .table th,
 .table td {
-    padding: 0.75rem;
+    padding: 0.45rem;
     vertical-align: top;
     border-top: 1px solid #dee2e6;
 }
@@ -8732,12 +8733,12 @@ button.bg-dark:focus {
 }
 
 .p-5 {
-    padding: 3rem !important;
+    padding: 1rem !important;
 }
 
 .pt-5,
 .py-5 {
-    padding-top: 3rem !important;
+    padding: 0rem 0rem 5rem 0rem !important;
 }
 
 .pr-5,
@@ -11035,7 +11036,7 @@ a.text-dark:focus {
 .card-custom-img::after {
     position: absolute;
     content: "";
-    top: 230px;
+    top: 210px;
     left: 0;
     width: 0;
     height: 0;
@@ -11055,7 +11056,7 @@ a.text-dark:focus {
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
     position: absolute;
-    top: 40%;
+    top: 35%;
     left: 1rem;
     width: 80px;
     height: 80px;
@@ -11077,4 +11078,35 @@ a.text-dark:focus {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.mst_format {
+    padding: 0.2em 0.5em 0.2em 0.5em;
+    margin: 0.1em 0.1em 0.1em 0.1em;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #ffffff; /*文字色*/
+    background: #379e37;
+    border: solid 3px #ffffff; /*線*/
+    border-radius: 10px; /*角の丸み*/
+}
+.mst_format_date {
+    padding: 0.2em;
+    margin: 0.1em 0.1em 0.1em 0.1em;
+    font-weight: bold;
+    color: #494949; /*文字色*/
+    background: #ffffff;
+    border: solid 3px #ffffff; /*線*/
+    border-radius: 10px; /*角の丸み*/
+}
+.container_top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.seminar_detail {
+    display: flex;
+    justify-content: center;
 }
